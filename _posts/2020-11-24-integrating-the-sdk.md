@@ -90,9 +90,20 @@ description: 5
 </span></code></pre>
 <p><strong>Step 4</strong>: In the Android Studio window, choose <strong>File</strong> &gt; <strong>Sync Project with Gradle Files</strong> to synchronize the project.</p>
 <p><strong>Step 5</strong>: Complete the essentials in the code; locate and open the MainActivity.kt</p>
-<p><strong>1. Locate following line to create ImageVision instance</strong></p>
-<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	// TODO: Create an ImageVision Instance<span class="pln">
+<p><strong>1. Locate following line and create the Wise Player Factory instance in WisePlayerInit Object.</strong></p>
+<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    // TODO: Create an ImageVision Instance<span class="pln">
+    val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
+    // In the multi-process scenario, the onCreate method in Application is called multiple times.
+    // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
+    // and WisePlayer process (named "app package name:player").
+    WisePlayerFactory.initFactory(context, factoryOptions, object : InitFactoryCallback {
+        override fun onSuccess(factory: WisePlayerFactory) {
+            wisePlayerFactory = factory
+        }
+        override fun onFailure(errorCode: Int, msg: String) {
+            Log.d("WisePlayerInit", "onFailure: $errorCode - $msg")
+        }
+    })
 </span></code></pre>
 <p><strong>2. Create the ImageVision instance</strong></p>
 <pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
