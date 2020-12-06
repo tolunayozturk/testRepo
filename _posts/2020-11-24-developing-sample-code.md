@@ -1,5 +1,5 @@
 ---
-title: Integrating the SDK
+title: Developing Sample Code
 description: 5
 ---
 
