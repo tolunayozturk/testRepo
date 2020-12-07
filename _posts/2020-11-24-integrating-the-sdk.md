@@ -144,29 +144,15 @@ description: 5
 <p><strong>6. Create Wise Player Instance</strong></p>
 <pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  return wisePlayerFactory.createWisePlayer()<span class="pln">
 </span></code></pre>
-<p><strong>7. Frame Layout and Surface View Snippet from XML of PlayActivity. Frame Layout is necessary for Surface View to display videos otherwise only audio will be listened </strong></p>
-<pre><div id="copy-button16" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintDimensionRatio="16:9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.9">
-        <SurfaceView
-            android:id="@+id/surfaceView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout> <span class="pln">
-</span></code></pre>
-<p><strong>8.Locate following line in Play Activity.</strong></p>
+<aside class="special">
+	<p>Frame Layout is necessary for Surface View to display videos, otherwise only audio will be listened</p>
+</aside>
+<img style="width: 220.00px" src="/assets/framelayout.PNG" onclick="imageclick(src)">
+<p><strong>7.Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting the Listeners
 <span class="pln">
 </span></code></pre>
-<p><strong>9. Set listeners in Play Activity.</strong></p>
+<p><strong>8. Set listeners in Play Activity.</strong></p>
 <pre><div id="copy-button18" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setReadyListener(this)
   player.setErrorListener(this)
   player.setEventListener(this)
@@ -176,47 +162,46 @@ description: 5
   player.setSeekEndListener(this)
   <span class="pln">
 </span></code></pre>
-<p><strong>10. Locate following line in Play Activity.</strong></p>
+<p><strong>9. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button19" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO Callback Listener
 <span class="pln">
 </span></code></pre>
-<p><strong>11. Set the Callback Listener in Play Activity.</strong></p>
+<p><strong>10. Set the Callback Listener in Play Activity.</strong></p>
 <pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  surfaceView.holder.addCallback(this)<span class="pln">
 </span></code></pre>
-<p><strong>12. Locate following line in Play Activity.</strong></p>
+<p><strong>11. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Starting the Player
 	<span class="pln">
 </span></code></pre>
-<p><strong>13. Start Wise Player in Play Activity.</strong></p>
+<p><strong>12. Start Wise Player in Play Activity.</strong></p>
 <pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  this.player.start()<span class="pln">
 </span></code></pre>
-<p><strong>14. Locate following line in Play Activity. </strong></p>
+<p><strong>13. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Change
 	<span class="pln">
 </span></code></pre>
-<p><strong>15. Set surface change to Wise Player.</strong></p>
+<p><strong>14. Set surface change to Wise Player.</strong></p>
 <pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setSurfaceChange()<span class="pln">
 </span></code></pre>
-<p><strong>16. Locate following line in Play Activity. </strong></p>
+<p><strong>15. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Destroy
 	<span class="pln">
 </span></code></pre>
-<p><strong>17. Suspend the Wise Player if surface is destroyed.</strong></p>
+<p><strong>16. Suspend the Wise Player if surface is destroyed.</strong></p>
 <pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.suspend()<span class="pln">
 </span></code></pre>
-<p><strong>18. Locate following line in Play Activity. </strong></p>
+<p><strong>17. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button27" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Create
 	<span class="pln">
 </span></code></pre>
-<p><strong>19. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
+<p><strong>18. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
 <pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setView(surfaceView)
   player.resume(PlayerConstants.ResumeType.KEEP)<span class="pln">
 </span></code></pre>
-<p><strong>20. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button29" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player
-	<span class="pln">
+<p><strong>19. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button29" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player<span class="pln">
 </span></code></pre>
-<p><strong>21. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
+<p><strong>20. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
 <pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setErrorListener(null)
   player.setEventListener(null)
   player.setResolutionUpdatedListener(null)
@@ -240,122 +225,29 @@ description: 5
 
 <h2><strong>Advanced Information</strong></h2>
 <ol type="1">
-	<li>If the image cannot be displayed during the test, you are advised to turn off hardware acceleration.</li>
-	<p>To turn off hardware acceleration, configure the AndroidManifest.xml file as follows:</p>
+	<li>Seekbar:</p>
+  <p>With the feature of Seekbar, displayed video can be rewound or forwarded.</p>
+  
+<p><strong>1. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button31" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Seekbar Change<span class="pln">
+</span></code></pre>
+<p><strong>2. Implement the Wise Player’s seek method.</strong></p>
+<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar?.progress?.let {player.seek(it)}<span class="pln">
+</span></code></pre>
 
-	<li>Add a dependency package to the <strong>dependencies</strong> section in the <strong>build.gradle</strong> file.<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code><span class="pln">&lt;application </span><span class="pun"></span><span class="pln">
-		</span><span class="pun">...</span><span class="pln">
-		android: </span><span class="str">hardwareAccelerated</span><span class="pln">
-		</span><span class="pun">...</span><span class="pln">
-	</span><span class="pun">&lt;/application&gt;</span><span class="pln">
-	</span></code></pre>
-	</li>
-
-
-	<li>At this codelab asynchronous operations are applied with with Kotlin coroutines to protect battery life and prevent memory leak by making a performance-oriented image filtering application.</li>
-	<p>In this scenario of codelab, a user selects an image from the Gallery. Call Init filter method and then start filtering images one by one which are located in recyclerView. (24 different items included in recyclerview to show all the filter types.)</p>
-	<p>All the sub-images were filtered by different filter types. </p>
-	<pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	  private fun startFilterForSubImages() {
-		subBitmapList.clear()
-		viewModel.getAllFilterItems(null)
-		recylerFilter.scrollToPosition(0)
-		channelIsFetching = true
-		coroutineScope.launch {
-			if (filterList.isNotEmpty()) {
-				initFilter() // initialize the vision service
-				for (x in 1..filterList.size) {
-					startFilter(x.toString(), "1", "1") // start filtering
-					var bitmap = channel.receive()
-					subBitmapList.put(x, bitmap)
-					viewModel.getAllFilterItems(subBitmapList)
-				}
-				stopFilter() // stop the vision service
-				channelIsFetching = false
-			}
-		}
-	  }
-	<span class="pln">
-	</span></code></pre>
-
-	<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	  private fun startFilter(filterType: String, intensity: String, compress: String) {
-
-		if (initCode == 0) {
-			coroutineScope.launch { // CoroutineScope is used for the async     calls
-				val jsonObject = JSONObject()
-
-	<span class="pln">
-	</span></code></pre>
-
-	<pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	  val taskJson = JSONObject()
-				try {
-					taskJson.put("intensity", intensity) //Filter strength. Generally, set this parameter to 1.
-					taskJson.put("filterType", filterType) // 24 different filterType code
-					taskJson.put("compressRate", compress) // Compression ratio.
-					jsonObject.put("requestId", "1") // Optinal
-					jsonObject.put("taskJson", taskJson)
-					jsonObject.put("authJson", authJson) // App can use the service only after it is successfully authenticated.
-
-					coroutineScope.launch {
-
-						visionResult = withContext(Dispatchers.IO) {
-							imageVisionAPI?.getColorFilter(
-								jsonObject,
-								bitmapFromGallery
-							)
-						}
-						// Obtain the rendering result from visionResult
-
-						val image = visionResult?.image
-						if (image == null)
-							Log.e(TAG, "FilterException: Couldn't render the image. Check the restrictions while rendering an image by Image Vision Service")
-
-						channel.send(image)
-						// Sending image bitmap with an async channel to make it receive with another channel
-					}
-
-				} catch (e: JSONException) {
-					Log.e(TAG, "JSONException: " + e.message)
-				}
-			}
-		}
-		else {
-			Toast.makeText(this@MainActivity, "initFailed", Toast.LENGTH_SHORT).show()
-		}
-	 }
-	</code></pre>
-
-	<p>When user clicks a filter to render the selected image, getColorFilter is invoked and the ImageVision service returns the filtered bitmap. Then it is necessary to implement onSelected method of the activity, which gets the FilterItem object of the clicked item from the adapter.</p>
-	<p>startFilter method is used for the image previews and the selected image.</p>
-
-	<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	  // Initialize and start a filter operation when a filter item is selected
-	  override fun onSelected(item: BaseInterface) {
-
-		if (!channelIsFetching)
-	</code></pre>
-
-	<pre><div id="copy-button27" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	   {
-		if (bitmapFromGallery == null)
-		Toast.makeText(baseContext, getString(R.string.select_photo_from_gallery), Toast.LENGTH_SHORT).show()
-		else
-		{
-			var filterItem = item as FilterItem
-			coroutineScope.launch {
-			initFilter() // initialize the vision service
-			startFilter(filterItem.filterId, "1", "1") // intensity and compress are 1
-			   var receivedBitmap = withContext(Dispatchers.IO){channel.receive()} // receive the filtered bitmap result from another channel
-			   imgView.setImageBitmap(receivedBitmap)
-			   stopFilter() // stop the vision service
-			}
-		}
-	  }
-		else
-			Toast.makeText(baseContext, getString(R.string.wait_to_complete_filtering), Toast.LENGTH_SHORT).show()
-	 }
-	</code></pre>
-
+  <li>Handler and Runnable:</p>
+<p>A Handler allows you to send and process Message and Runnable objects associated with a thread's MessageQueue. With the feature of Handler, we can update the UI elements for every 1 seconds.</p>
+<p><strong>1. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button33" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Handler and Runnable Implementation<span class="pln">
+</span></code></pre>
+<p><strong>2. Implement the Wise Player’s seek method.</strong></p>
+<pre><div id="copy-button34" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
+        //Player UI
+        configureControlView()
+        //Text UI Elements 
+        configureContentView()
+        if (!mStopHandler) {
+            mHandler.postDelayed(runnable, DELAY_SECOND)
+        }<span class="pln">
+</span></code></pre>
 </ol>
