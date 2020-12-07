@@ -220,11 +220,12 @@ description: 5
 	<li>Fill the Edittext and enter an Url, click the “Play” Button.</li>
 	<li>Wait for video to be displayed.</li>
 </ol>
-<img style="width: 220.00px" src="/assets/playvideoswithvideokitone.PNG" onclick="imageclick(src)"> <img style="width: 220.00px" src="/assets/playvideoswithvideokittwo.PNG" onclick="imageclick(src)">
+<img style="width: 220.00px" src="/assets/playvideoswithvideokitone.PNG" onclick="imageclick(src)">
+<img style="width: 220.00px" src="/assets/playvideoswithvideokittwo.PNG" onclick="imageclick(src)">
 
 <h2><strong>Advanced Information</strong></h2>
 <ol type="1">
-  <li>Seekbar:</li>
+  <h3><li>Seekbar:</li></h3>
   <p>With the feature of Seekbar, displayed video can be rewound or forwarded.</p>
   
 <p><strong>1. Locate following line in Play Activity.</strong></p>
@@ -234,14 +235,13 @@ description: 5
 <pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar?.progress?.let {player.seek(it)}<span class="pln">
 </span></code></pre>
 
-  <li>Handler and Runnable:</li>
+ <h3><li>Handler and Runnable:</li></h3>
 <p>A Handler allows you to send and process Message and Runnable objects associated with a thread's MessageQueue. With the feature of Handler, we can update the UI elements for every 1 seconds.</p>
 <p><strong>1. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button33" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Handler and Runnable Implementation<span class="pln">
 </span></code></pre>
 <p><strong>2. Implement the Wise Player’s seek method.</strong></p>
-<pre><div id="copy-button34" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  
-        //Player UI
+<pre><div id="copy-button34" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>        //Player UI
         configureControlView()
         //Text UI Elements 
         configureContentView()
