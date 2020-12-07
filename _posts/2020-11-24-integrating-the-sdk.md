@@ -90,9 +90,11 @@ description: 5
 </span></code></pre>
 <p><strong>Step 4</strong>: In the Android Studio window, choose <strong>File</strong> &gt; <strong>Sync Project with Gradle Files</strong> to synchronize the project.</p>
 <p><strong>Step 5</strong>: Complete the essentials in the code; locate and open the MainActivity.kt</p>
-<p><strong>1. Locate following line and create the Wise Player Factory instance in WisePlayerInit Object.</strong></p>
+<p><strong>1. Locate following line to create the Wise Player Factory instance in WisePlayerInit Object.</strong></p>
 <pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    // TODO: Create an ImageVision Instance<span class="pln">
-    val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
+</span></code></pre>
+<p><strong>2. create the Wise Player Factory instance</strong></p>
+<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
     // In the multi-process scenario, the onCreate method in Application is called multiple times.
     // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
     // and WisePlayer process (named "app package name:player").
@@ -103,34 +105,9 @@ description: 5
         override fun onFailure(errorCode: Int, msg: String) {
             Log.d("WisePlayerInit", "onFailure: $errorCode - $msg")
         }
-    })
+    })<span class="pln">
 </span></code></pre>
-<p><strong>2. Create the ImageVision instance</strong></p>
-<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	imageVisionAPI = ImageVision.getInstance(baseContext)<span class="pln">
-</span></code></pre>
-<p><strong>3. Locate following line to initialize the ImageVision service</strong></p>
-<pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	// TODO Initialize the ImageVision service.<span class="pln">
-</span></code></pre>
-<p><strong>4. Initialize the ImageVision service. Return code 0 means initialization succeeded </strong></p>
-<pre><div id="copy-button13" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	imageVisionAPI.setVisionCallBack(object : VisionCallBack {
-		override fun onSuccess(successCode: Int) {
-			val initCode = imageVisionAPI.init(baseContext, authJson)
-			// initCode must be 0 if the initialization is successful.
-			if (initCode == 0)
-				Log.d(TAG, "getImageVisionAPI rendered image successfully")
-		}
-
-		override fun onFailure(errorCode: Int) {
-			Log.e(TAG, "getImageVisionAPI failure, errorCode = $errorCode")
-			Toast.makeText(this@MainActivity, "initFailed", Toast.LENGTH_SHORT).show()
-		}
-	})
-	<span class="pln">
-</span></code></pre>
-<p>Description of <strong>authJson</strong> parameters:<br></p>
+<p>Description of <strong>Wise Player Factory</strong> is as following:<br></p>
 <table style="width: 100%;table-layout: fixed;">
 	<tbody><tr></tr>
 	<tr><td colspan="1" rowspan="1"><p>Parameter</p>
@@ -138,290 +115,127 @@ description: 5
 	</td><td colspan="1" rowspan="1"><p>Mandatory or Not</p>
 	</td><td colspan="1" rowspan="1"><p>Description</p>
 	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>projectId</p>
-	</td><td colspan="1" rowspan="1"><p>String</p>
-	</td><td colspan="1" rowspan="1"><p>Yes</p>
-	</td><td colspan="1" rowspan="1"><p>Project ID you obtained when registering with HUAWEI Developers.</p>
+	<tr><td colspan="1" rowspan="1"><p>context</p>
+	</td><td colspan="1" rowspan="1"><p>Context</p>
+	</td><td colspan="1" rowspan="1"><p>M</p>
+	</td><td colspan="1" rowspan="1"><p>Android context object, which is not set to null.</p>
 	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>appId</p>
-	</td><td colspan="1" rowspan="1"><p>String</p>
-	</td><td colspan="1" rowspan="1"><p>Yes</p>
-	</td><td colspan="1" rowspan="1"><p>Project ID you obtained during registration.</p>
+	<tr><td colspan="1" rowspan="1"><p>options</p>
+	</td><td colspan="1" rowspan="1"><p>Integer</p>
+	</td><td colspan="1" rowspan="1"><p>M</p>
+	</td><td colspan="1" rowspan="1"><p>nstance of the WisePlayer factory class initialization option <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/wpf-options-0000001050439397-V5" target="_blank">WisePlayerFactoryOptions</a></p>
 	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>authApiKey</p>
-	</td><td colspan="1" rowspan="1"><p>String</p>
-	</td><td colspan="1" rowspan="1"><p>Yes</p>
-	</td><td colspan="1" rowspan="1"><p>API key used for authentication, which is provided by HUAWEI Developers.</p>
-	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>clientSecret</p>
-	</td><td colspan="1" rowspan="1"><p>String</p>
-	</td><td colspan="1" rowspan="1"><p>Yes</p>
-	</td><td colspan="1" rowspan="1"><p>Client secret used for authentication.</p>
-	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>clientId</p>
-	</td><td colspan="1" rowspan="1"><p>String</p>
-	</td><td colspan="1" rowspan="1"><p>Yes</p>
-	</td><td colspan="1" rowspan="1"><p>Client ID.</p>
-	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>token</p>
-	</td><td colspan="1" rowspan="1"><p>String</p>
-	</td><td colspan="1" rowspan="1"><p>No</p>
-	</td><td colspan="1" rowspan="1"><p>Session token, which is used to verify an app. It is recommended that the app server obtain the session token from the AppGallery using clientId and ClientSecret.</p>
+	<tr><td colspan="1" rowspan="1"><p>callback</p>
+	</td><td colspan="1" rowspan="1"><p>Object</p>
+	</td><td colspan="1" rowspan="1"><p>M</p>
+	</td><td colspan="1" rowspan="1"><p>Instance of the <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/init-factory-callback-0000001050199187-V5" target="_blank">InitFactoryCallback API</a> for initializing the WisePlayer factory class.</p>
 	</td></tr>
 </tbody></table>
-<aside class="special">
-	<p><strong>Note:</strong> You can find the preceding parameters in the agconnect-services.json file. For details, please refer to the  <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050199019" target="_blank">Development Guide</a>.</p>
-</aside>
-<aside class="special">
-	<p>For security purposes, the authentication information used in the sample code is fake. You need to enter the actual authentication information during app development.</p>
-</aside>
-<p><strong>5. Locate following line to load filters. Filters are initialized in MainViewModel </strong></p>
-<pre><div id="copy-button14" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	// TODO get filters from ViewModel<span class="pln">
+<p><strong>3. Locate following line and set the EditTexts Urls in MainActivity to play related buttons</strong></p>
+<pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>   // TODO Set video Url or Urls<span class="pln">
 </span></code></pre>
-<p><strong>6. Get the filters </strong></p>
+<p><strong>4.Set the EditTexts Urls  </strong></p>
+<pre><div id="copy-button13" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> edtUrl.setText(resources.getString(R.string.single_url))
+ edtMultipleUrl.setText(resources.getString(R.string.multiple_url))<span class="pln">
+</span></code></pre>
+<p><strong>5. Locate following line and create Wise Player Instance in WisePlayerInit Object. </strong></p>
+<pre><div id="copy-button14" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  // TODO Initializing of Wise Player Instance<span class="pln">
+</span></code></pre>
+<p><strong>6. Create Wise Player Instance</strong></p>
 <pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	viewModel.getAllFilterItems(null)
+	return wisePlayerFactory.createWisePlayer()
 <span class="pln">
 </span></code></pre>
-<p><strong>7. Locate following line to prepare the image filtering request. </strong></p>
+<p><strong>7. Frame Layout and Surface View Snippet from XML of PlayActivity. </strong></p>
 <pre><div id="copy-button16" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	// TODO prepare request parameters for applying filters <span class="pln">
+	<!-- Frame Layout is necessary for Surface View to display videos
+        otherwise only audio will be listened -->
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+        <SurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+ <span class="pln">
 </span></code></pre>
-
-<p><strong>8. Construct required JSON objects.  </strong></p>
-<pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	taskJson.put(
-		"intensity",
-		intensity
-	) //Filter strength. Generally, set this parameter to 1.
-	taskJson.put("filterType", filterType) // 24 different filterType code
-	taskJson.put("compressRate", compress) // Compression ratio.
-	jsonObject.put("requestId", "1")
-	jsonObject.put("taskJson", taskJson)
-	jsonObject.put(
-		"authJson",
-		authJson
-	) // App can use the service only after it is successfully authenticated.
-
-	<span class="pln">
+<p><strong>8.Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting the Listeners
 </span></code></pre>
-
-<p><strong>8. Locate following line to start applying filters and getting result.  </strong></p>
+<p><strong>9. Set listeners in Play Activity.</strong></p>
 <pre><div id="copy-button18" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	// TODO Start applying filters to images and retrieve results then send to UI<span class="pln">
+	player.setReadyListener(this)
+  player.setErrorListener(this)
+  player.setEventListener(this)
+  player.setResolutionUpdatedListener(this)
+  player.setLoadingListener(this)
+  player.setPlayEndListener(this)
+  player.setSeekEndListener(this)
+  <span class="pln">
 </span></code></pre>
-
-<p><strong>9. Start applying filters and fetch result </strong></p>
-<pre><div id="copy-button19" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	coroutineScope.launch {
-		var deferred: Deferred<ImageVisionResult?> = async(Dispatchers.IO) {
-			imageVisionAPI?.getColorFilter(jsonObject, bitmapFromGallery)
-		}
-		visionResult = deferred.await() // wait till obtain ImageVisionResult object
-		val image = visionResult?.image
-		if (image == null)
-			Log.e(
-				TAG,
-				"FilterException: Couldn't render the image. Check the restrictions while rendering an image by Image Vision Service"
-			)
-
-		channel.send(image)
-		// Sending image bitmap with an async channel to make it receive with another channel
-	}
+<p><strong>10. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button19" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO Callback Listener
 <span class="pln">
 </span></code></pre>
-<p>Description of <strong>requestJson</strong> and <strong>imageBitmap</strong>parameters is as following;<br></p>
-
-<table style="width: 100%;table-layout: fixed;">
-	<tbody><tr></tr>
-		<tr><td colspan="1" rowspan="1"><p>Parameter</p>
-		</td><td colspan="1" rowspan="1"><p>Type</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory or Not</p>
-		</td><td colspan="1" rowspan="1"><p>Description</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>requestJson</p>
-		</td><td colspan="1" rowspan="1"><p>JSONObject</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory</p>
-		</td><td colspan="1" rowspan="1"><p>JSON string containing image processing request parameters.</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>imageBitmap</p>
-		</td><td colspan="1" rowspan="1"><p>Bitmap</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory</p>
-		</td><td colspan="1" rowspan="1"><p>Image to be processed. The aspect ratio is between 1:3 and 3:1, and the width and height pixels are less than or equal to 8000.</p>
-		</td></tr>
-	</tbody>
-</table>
-
-<p>Description of <strong>requestJson</strong> parameters;<br></p>
-<table style="width: 100%;table-layout: fixed;">
-	<tbody><tr></tr>
-		<tr><td colspan="1" rowspan="1"><p>Parameter</p>
-		</td><td colspan="1" rowspan="1"><p>Type</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory or Not</p>
-		</td><td colspan="1" rowspan="1"><p>Description</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>requestId</p>
-		</td><td colspan="1" rowspan="1"><p>String</p>
-		</td><td colspan="1" rowspan="1"><p>Optional</p>
-		</td><td colspan="1" rowspan="1"><p>Request ID provided by the Image Vision service.</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>taskJson</p>
-		</td><td colspan="1" rowspan="1"><p>JSONObject</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory</p>
-		</td><td colspan="1" rowspan="1"><p>JSON string containing detailed service request information.</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>authJson</p>
-		</td><td colspan="1" rowspan="1"><p>JSONObject</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory</p>
-		</td><td colspan="1" rowspan="1"><p>JSON string containing authentication parameters.</p>
-		</td></tr>
-	</tbody>
-</table>
-
-<p>Description of <strong>responseJson</strong> parameters:</p>
-<table style="width: 100%;table-layout: fixed;">
-	<tbody><tr></tr>
-		<tr><td colspan="1" rowspan="1"><p>Parameter</p>
-		</td><td colspan="1" rowspan="1"><p>Type</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory or Not</p>
-		</td><td colspan="1" rowspan="1"><p>Description</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>index</p>
-		</td><td colspan="1" rowspan="1"><p>int</p>
-		</td><td colspan="1" rowspan="1"><p>Optional</p>
-		</td><td colspan="1" rowspan="1"><p>Image index for color mapping. The value ranges from 0 to 24. Value 0 indicates the original image.</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>intensity</p>
-		</td><td colspan="1" rowspan="1"><p>float</p>
-		</td><td colspan="1" rowspan="1"><p>Optional</p>
-		</td><td colspan="1" rowspan="1"><p>Filter strength. Generally, set this parameter to 1.</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>compressRate</p>
-		</td><td colspan="1" rowspan="1"><p>float</p>
-		</td><td colspan="1" rowspan="1"><p>Optional</p>
-		</td><td colspan="1" rowspan="1"><p>Compression rate. Compression is not performed by default. The value range is (0-1].</p>
-		</td></tr>
-	</tbody>
-</table>
-<p>List of available filters and <strong>filterType</strong> mapping:</p>
-<table style="width: 100%;table-layout: fixed;">
-	<tbody><tr></tr>
-		<tr><td colspan="1" rowspan="1"><p>1</p>
-		</td><td colspan="1" rowspan="1"><p>2</p>
-		</td><td colspan="1" rowspan="1"><p>3</p>
-		</td><td colspan="1" rowspan="1"><p>4</p>
-		</td><td colspan="1" rowspan="1"><p>5</p>
-		</td><td colspan="1" rowspan="1"><p>6</p>
-		</td><td colspan="1" rowspan="1"><p>7</p>
-		</td><td colspan="1" rowspan="1"><p>8</p>
-		</td><td colspan="1" rowspan="1"><p>9</p>
-		</td><td colspan="1" rowspan="1"><p>10</p>
-		</td><td colspan="1" rowspan="1"><p>11</p>
-		</td><td colspan="1" rowspan="1"><p>12</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>Black-and-white</p>
-		</td><td colspan="1" rowspan="1"><p>Brown tone</p>
-		</td><td colspan="1" rowspan="1"><p>Lazy</p>
-		</td><td colspan="1" rowspan="1"><p>Freesia</p>
-		</td><td colspan="1" rowspan="1"><p>Fuji</p>
-		</td><td colspan="1" rowspan="1"><p>Peach pink</p>
-		</td><td colspan="1" rowspan="1"><p>Sea salt</p>
-		</td><td colspan="1" rowspan="1"><p>Mint</p>
-		</td><td colspan="1" rowspan="1"><p>Reed</p>
-		</td><td colspan="1" rowspan="1"><p>Vintage</p>
-		</td><td colspan="1" rowspan="1"><p>Marshmallow</p>
-		</td><td colspan="1" rowspan="1"><p>Moss</p>
-		</td></tr>
-	</tbody>
-</table>
-<table style="width: 100%;table-layout: fixed;">
-	<tbody><tr></tr>
-		<tr><td colspan="1" rowspan="1"><p>13</p>
-		</td><td colspan="1" rowspan="1"><p>14</p>
-		</td><td colspan="1" rowspan="1"><p>15</p>
-		</td><td colspan="1" rowspan="1"><p>16</p>
-		</td><td colspan="1" rowspan="1"><p>17</p>
-		</td><td colspan="1" rowspan="1"><p>18</p>
-		</td><td colspan="1" rowspan="1"><p>19</p>
-		</td><td colspan="1" rowspan="1"><p>20</p>
-		</td><td colspan="1" rowspan="1"><p>21</p>
-		</td><td colspan="1" rowspan="1"><p>22</p>
-		</td><td colspan="1" rowspan="1"><p>23</p>
-		</td><td colspan="1" rowspan="1"><p>24</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>Sunlight</p>
-		</td><td colspan="1" rowspan="1"><p>Time</p>
-		</td><td colspan="1" rowspan="1"><p>Haze blue</p>
-		</td><td colspan="1" rowspan="1"><p>Sunflower</p>
-		</td><td colspan="1" rowspan="1"><p>Hard</p>
-		</td><td colspan="1" rowspan="1"><p>Bronze yellow</p>
-		</td><td colspan="1" rowspan="1"><p>Monochromic tone</p>
-		</td><td colspan="1" rowspan="1"><p>Yellow-green tone</p>
-		</td><td colspan="1" rowspan="1"><p>Yellow tone</p>
-		</td><td colspan="1" rowspan="1"><p>Green tone</p>
-		</td><td colspan="1" rowspan="1"><p>Cyan tone</p>
-		</td><td colspan="1" rowspan="1"><p>Violet tone</p>
-		</td></tr>
-	</tbody>
-</table>
-<p>Description of  <strong>visionResult</strong> parameters is as following:</p>
-<table style="width: 100%;table-layout: fixed;">
-	<tbody><tr></tr>
-		<tr><td colspan="1" rowspan="1"><p>Parameter</p>
-		</td><td colspan="1" rowspan="1"><p>Type</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory or Not</p>
-		</td><td colspan="1" rowspan="1"><p>Description</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>resultCode</p>
-		</td><td colspan="1" rowspan="1"><p>int</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory</p>
-		</td><td colspan="1" rowspan="1"><p>Result code.</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>responseJson</p>
-		</td><td colspan="1" rowspan="1"><p>JsonObject</p>
-		</td><td colspan="1" rowspan="1"><p>Optional</p>
-		</td><td colspan="1" rowspan="1"><p>JSON string containing the returned result.</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>compressRate</p>
-		</td><td colspan="1" rowspan="1"><p>Bitmap</p>
-		</td><td colspan="1" rowspan="1"><p>Optional</p>
-		</td><td colspan="1" rowspan="1"><p>Processed image. For an API that directly returns images, this parameter is used by the API to transfer the processed image.</p>
-		</td></tr>
-	</tbody>
-</table>
-
-<p>Description of  <strong>responseJson</strong> parameters is as following:</p>
-<table style="width: 100%;table-layout: fixed;">
-	<tbody><tr></tr>
-		<tr><td colspan="1" rowspan="1"><p>Parameter</p>
-		</td><td colspan="1" rowspan="1"><p>Type</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory or Not</p>
-		</td><td colspan="1" rowspan="1"><p>Description</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>requestId</p>
-		</td><td colspan="1" rowspan="1"><p>String</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory</p>
-		</td><td colspan="1" rowspan="1"><p>Request ID provided by the Image Vision service. This parameter is available only if it is carried in the service request.</p>
-		</td></tr>
-		<tr><td colspan="1" rowspan="1"><p>serviceId</p>
-		</td><td colspan="1" rowspan="1"><p>String</p>
-		</td><td colspan="1" rowspan="1"><p>Mandatory</p>
-		</td><td colspan="1" rowspan="1"><p>ID of the service being called.</p>
-		</td></tr>
-	</tbody>
-</table>
-
-<p><strong>9. Locate following line to safely stop the ImageVision service.  </strong></p>
+<p><strong>11. Set the Callback Listener in Play Activity.</strong></p>
 <pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	// TODO Stop ImageVision service<span class="pln">
+	surfaceView.holder.addCallback(this)<span class="pln">
 </span></code></pre>
-
-<p><strong>10. Stop ImageService</strong></p>
-<pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	if (imageVisionAPI != null)
-		imageVisionAPI.stop()
+<p><strong>12. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Starting the Player
 	<span class="pln">
+</span></code></pre>
+<p><strong>13. Start Wise Player in Play Activity.</strong></p>
+<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
+	this.player.start()<span class="pln">
+</span></code></pre>
+<p><strong>14. Locate following line in Play Activity. </strong></p>
+<pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Change
+	<span class="pln">
+</span></code></pre>
+<p><strong>15. Set surface change to Wise Player.</strong></p>
+<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
+	player.setSurfaceChange()<span class="pln">
+</span></code></pre>
+<p><strong>16. Locate following line in Play Activity. </strong></p>
+<pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Destroy
+	<span class="pln">
+</span></code></pre>
+<p><strong>17. Suspend the Wise Player if surface is destroyed.</strong></p>
+<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
+	player.suspend()<span class="pln">
+</span></code></pre>
+<p><strong>18. Locate following line in Play Activity. </strong></p>
+<pre><div id="copy-button27" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Create
+	<span class="pln">
+</span></code></pre>
+<p><strong>19. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
+<pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
+	player.setView(surfaceView)
+  player.resume(PlayerConstants.ResumeType.KEEP)<span class="pln">
+</span></code></pre>
+<p><strong>20. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button29" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player
+	<span class="pln">
+</span></code></pre>
+<p><strong>21. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
+<pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
+	player.setErrorListener(null)
+  player.setEventListener(null)
+  player.setResolutionUpdatedListener(null)
+  player.setReadyListener(null)
+  player.setLoadingListener(null)
+  player.setPlayEndListener(null)
+  player.setSeekEndListener(null)
+  player.release()<span class="pln">
 </span></code></pre>
 
 <h2><strong>Test and Verification</strong></h2>
