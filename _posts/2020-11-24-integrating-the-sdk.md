@@ -55,7 +55,7 @@ description: 5
 </ul>
 <p><strong>3. Configure obfuscation scripts.</strong></p>
 <ul>
-	<li>Configure the following information in the <strong>app/proguard-rules.pro</strong> file:<pre><div id="copy-button7" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>           <span class="pun">-</span><span class="pln">ignorewarnings</span><span class="pln">
+	<li>Configure the following information in the <strong>app/proguard-rules.pro</strong> file:<pre><div id="copy-button7" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>               <span class="pun">-</span><span class="pln">ignorewarnings</span><span class="pln">
 		</span><span class="pun">-</span><span class="pln">keepattributes </span><span class="pun">*</span><span class="typ">Annotation</span><span class="pun">*</span><span class="pln">
 		</span><span class="pun">-</span><span class="pln">keepattributes </span><span class="typ">Exceptions</span><span class="pln">
 		</span><span class="pun">-</span><span class="pln">keepattributes </span><span class="typ">InnerClasses</span><span class="pln">
@@ -66,7 +66,7 @@ description: 5
 		</span><span class="pun">-</span><span class="pln">keep </span><span class="kwd">class</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">huawei</span><span class="pun">.</span><span class="pln">hms</span><span class="pun">.**{*;}</span><span class="pln">
 		</span></code></pre>
 	</li>
-	<li>If you are using AndResGuard, add it to the allowlist in the obfuscation script file.<pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>		       <span class="str">"R.string.hms*"<span class="pun">,</span><span class="pln">
+	<li>If you are using AndResGuard, add it to the allowlist in the obfuscation script file.<pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>		           <span class="str">"R.string.hms*"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.connect_server_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.getting_message_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.no_available_network_prompt_toast"</span><span class="pun">,</span><span class="pln">
