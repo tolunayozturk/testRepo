@@ -147,7 +147,7 @@ description: 5
 <aside class="special">
 	<p>Frame Layout is necessary for Surface View to display videos, otherwise only audio will be listened</p>
 </aside>
-<br><img style="width: 350.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/framelayout.PNG" onclick="imageclick(src)">
+<br><img style="width: 400.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/framelayout.PNG" onclick="imageclick(src)">
 <p><strong>7.Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting the Listeners
 <span class="pln">
@@ -213,15 +213,14 @@ description: 5
 </span></code></pre>
 
 <h2><strong>Test and Verification</strong></h2>
-<p>Upon completing the essential parts of the code, connect your mobile device to the PC and enable the USB debugging mode. In the Android Studio window, click   <img style="width: 19.00px" src="/assets/run_image.png" onclick="imageclick(src)">    icon to run the project you have created in Android Studio to generate an APK. Then install the APK on the mobile device.</p>
+<p>Upon completing the essential parts of the code, connect your mobile device to the PC and enable the USB debugging mode. In the Android Studio window, click   <img style="width: 19.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/run_image.png" onclick="imageclick(src)">    icon to run the project you have created in Android Studio to generate an APK. Then install the APK on the mobile device.</p>
 
 <ol type="1">
 	<li>Open the app upon installing it to your device</li>
 	<li>Fill the Edittext and enter an Url, click the “Play” Button.</li>
 	<li>Wait for video to be displayed.</li>
 </ol>
-<img style="width: 220.00px" src="/assets/playvideoswithvideokitone.PNG" onclick="imageclick(src)">
-<img style="width: 220.00px" src="/assets/playvideoswithvideokittwo.PNG" onclick="imageclick(src)">
+<img style="width: 220.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/playvideoswithvideokitone.PNG" onclick="imageclick(src)">      <img style="width: 220.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/playvideoswithvideokittwo.PNG" onclick="imageclick(src)">
 
 <h2><strong>Advanced Information</strong></h2>
 <ol type="1">
