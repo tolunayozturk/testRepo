@@ -93,7 +93,7 @@ description: 5
 <p><strong>1. Locate following line to create the Wise Player Factory instance in WisePlayerInit Object.</strong></p>
 <pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    // TODO: Create an ImageVision Instance<span class="pln">
 </span></code></pre>
-<p><strong>2. create the Wise Player Factory instance</strong></p>
+<p><strong>2. Create the Wise Player Factory instance</strong></p>
 <pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
     // In the multi-process scenario, the onCreate method in Application is called multiple times.
     // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
@@ -123,7 +123,7 @@ description: 5
 	<tr><td colspan="1" rowspan="1"><p>options</p>
 	</td><td colspan="1" rowspan="1"><p>Integer</p>
 	</td><td colspan="1" rowspan="1"><p>M</p>
-	</td><td colspan="1" rowspan="1"><p>nstance of the WisePlayer factory class initialization option <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/wpf-options-0000001050439397-V5" target="_blank">WisePlayerFactoryOptions</a></p>
+	</td><td colspan="1" rowspan="1"><p>Instance of the WisePlayer factory class initialization option <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/wpf-options-0000001050439397-V5" target="_blank">WisePlayerFactoryOptions</a></p>
 	</td></tr>
 	<tr><td colspan="1" rowspan="1"><p>callback</p>
 	</td><td colspan="1" rowspan="1"><p>Object</p>
@@ -146,10 +146,8 @@ description: 5
 	return wisePlayerFactory.createWisePlayer()
 <span class="pln">
 </span></code></pre>
-<p><strong>7. Frame Layout and Surface View Snippet from XML of PlayActivity. </strong></p>
+<p><strong>7. Frame Layout and Surface View Snippet from XML of PlayActivity. Frame Layout is necessary for Surface View to display videos otherwise only audio will be listened </strong></p>
 <pre><div id="copy-button16" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	<!-- Frame Layout is necessary for Surface View to display videos
-        otherwise only audio will be listened -->
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
@@ -169,10 +167,10 @@ description: 5
 </span></code></pre>
 <p><strong>8.Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting the Listeners
+<span class="pln">
 </span></code></pre>
 <p><strong>9. Set listeners in Play Activity.</strong></p>
-<pre><div id="copy-button18" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	player.setReadyListener(this)
+<pre><div id="copy-button18" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setReadyListener(this)
   player.setErrorListener(this)
   player.setEventListener(this)
   player.setResolutionUpdatedListener(this)
@@ -186,40 +184,35 @@ description: 5
 <span class="pln">
 </span></code></pre>
 <p><strong>11. Set the Callback Listener in Play Activity.</strong></p>
-<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	surfaceView.holder.addCallback(this)<span class="pln">
+<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  surfaceView.holder.addCallback(this)<span class="pln">
 </span></code></pre>
 <p><strong>12. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Starting the Player
 	<span class="pln">
 </span></code></pre>
 <p><strong>13. Start Wise Player in Play Activity.</strong></p>
-<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	this.player.start()<span class="pln">
+<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  this.player.start()<span class="pln">
 </span></code></pre>
 <p><strong>14. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Change
 	<span class="pln">
 </span></code></pre>
 <p><strong>15. Set surface change to Wise Player.</strong></p>
-<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	player.setSurfaceChange()<span class="pln">
+<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setSurfaceChange()<span class="pln">
 </span></code></pre>
 <p><strong>16. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Destroy
 	<span class="pln">
 </span></code></pre>
 <p><strong>17. Suspend the Wise Player if surface is destroyed.</strong></p>
-<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	player.suspend()<span class="pln">
+<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.suspend()<span class="pln">
 </span></code></pre>
 <p><strong>18. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button27" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Create
 	<span class="pln">
 </span></code></pre>
 <p><strong>19. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
-<pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	player.setView(surfaceView)
+<pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setView(surfaceView)
   player.resume(PlayerConstants.ResumeType.KEEP)<span class="pln">
 </span></code></pre>
 <p><strong>20. Locate following line in Play Activity.</strong></p>
@@ -227,8 +220,7 @@ description: 5
 	<span class="pln">
 </span></code></pre>
 <p><strong>21. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
-<pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	player.setErrorListener(null)
+<pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setErrorListener(null)
   player.setEventListener(null)
   player.setResolutionUpdatedListener(null)
   player.setReadyListener(null)
