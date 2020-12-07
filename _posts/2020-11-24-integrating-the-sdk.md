@@ -232,13 +232,11 @@ description: 5
 
 <ol type="1">
 	<li>Open the app upon installing it to your device</li>
-	<li>Use the <img style="width: 19.00px" src="/assets/gallery_icon.jpg" onclick="imageclick(src)"> icon to access to your gallery and pick an image. Grant necessary permissions in case system asks for it</li>
-	<li>Wait for filter and preview initialization</li>
-	<li>Apply a filter to the image</li>
+	<li>Fill the Edittext and enter an Url, click the “Play” Button.</li>
+	<li>Wait for video to be displayed.</li>
 </ol>
-<img style="width: 220.00px" src="/assets/Hms_image_kit1.jpg" onclick="imageclick(src)">
-<img style="width: 220.00px" src="/assets/hms_image_kit2.jpg" onclick="imageclick(src)">
-<img style="width: 220.00px" src="/assets/hms_image_kit3.jpg" onclick="imageclick(src)">
+<img style="width: 220.00px" src="/assets/playvideoswithvideokitone.PNG" onclick="imageclick(src)">
+<img style="width: 220.00px" src="/assets/playvideoswithvideokittwo.PNG" onclick="imageclick(src)">
 
 <h2><strong>Advanced Information</strong></h2>
 <ol type="1">
