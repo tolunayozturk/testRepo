@@ -66,7 +66,7 @@ description: 5
 		</span><span class="pun">-</span><span class="pln">keep </span><span class="kwd">class</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">huawei</span><span class="pun">.</span><span class="pln">hms</span><span class="pun">.**{*;}</span><span class="pln">
 		</span></code></pre>
 	</li>
-	<li>If you are using AndResGuard, add it to the allowlist in the obfuscation script file.<pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>           <span class="str">"R.string.hms*"</span><span class="pun">,</span><span class="pln">
+	<li>If you are using AndResGuard, add it to the allowlist in the obfuscation script file.<pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>              <span class="str">"R.string.hms*"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.connect_server_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.getting_message_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.no_available_network_prompt_toast"</span><span class="pun">,</span><span class="pln">
@@ -206,7 +206,8 @@ description: 5
 </span></code></pre>
 <p><strong>18. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
 <pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setView(surfaceView)
-  player.resume(PlayerConstants.ResumeType.KEEP)<span class="pln">
+  player.resume(PlayerConstants.ResumeType.KEEP)
+<span class="pln">
 </span></code></pre>
 <p><strong>19. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button29" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player
