@@ -4,17 +4,17 @@ description: 1
 ---
 
 <p>
-	HUAWEI Image Kit builds powerful smart editing and scene-specific animation capabilities into your app using the Image Vision SDK and Image Render SDK. By integrating the Image Vision SDK and Image Render SDK, you can quickly access 24 filters and 9 smart layouts as well as the image theme tagging, text arts, image cropping, and animation capabilities.
+	HUAWEI Video Kit provides video playback in this version, and will support video editing and video hosting in later versions, helping you quickly build desired video features to deliver a superb video experience to your app users.
 </p>
 <h2>
 	<strong>What You Will Create</strong>
 </h2>
-<p>In this codelab, you will use the demo project that has been created for you to experience Image Kit APIs. Through the demo project, you will experience developing a simple photo filtering application;</p>
+<p>In this codelab, you will use the demo project that has been created for you to experience Video Kit APIs. Through the demo project, you will experience developing a video play feature with;</p>
 <ul>
-	<li>Access to Photo Gallery</li>
-	<li>Pick an image from Gallery</li>
-	<li>Create preview of image picked for all twenty-four filters available</li>
-	<li>Apply a particular filter to an image.</li>
+	<li>Initializing Wise Player</li>
+	<li>Setting Urls to display a video</li>
+	<li>Playing the video in the app</li>
+	<li>Using powerful Video Kit Features</li>
 </ul>
 <h2 class="checklist">
 	<strong>What You Will Learn</strong>
@@ -23,6 +23,6 @@ description: 1
 	In this codelab, you will learn how to:
 </p>
 <ul class="checklist">
-	<li>Integrate and use abilities of Image Vision SDK, apply filters to image</li>
-	<li>Using coroutines to achieve async filtering for having a battery efficient and high performant image filtering application.</li>
+	<li>Initialize Wise Player in order to display videos</li>
+	<li>Integrate and use abilities of Video Kit SDK</li>
 </ul>

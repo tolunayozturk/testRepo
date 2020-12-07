@@ -5,6 +5,8 @@ description: 12
 
 <p>Well done. You have successfully completed this Codelab and learned:</p>
 <ul>
-<li>How to integrate the Image Vision SDK to apply filters to images.</li>
-<li>How to use Kotlin Coroutines to create a battery efficient and high-performant image filtering application.</li>
+<li>How to initialize Wise Player.</li>
+<li>How to use Video Kit SDK features.</li>
+<li>How to use Seekbar View</li>
+<li>How to implement Handler</li>
 </ul>
