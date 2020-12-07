@@ -145,10 +145,10 @@ description: 5
 <pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  return wisePlayerFactory.createWisePlayer()<span class="pln">
 </span></code></pre>
 <aside class="special">
-	<p>Frame Layout is necessary for Surface View to display videos, otherwise only audio will be listened</p>
+	<p><strong>Note: Frame Layout is necessary for SurfaceView to display videos, otherwise only audio will be listened</strong></p>
 </aside>
 <br><img style="width: 400.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/framelayout.PNG" onclick="imageclick(src)">
-<p><strong>7.Locate following line in Play Activity.</strong></p>
+<p><strong>7. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting the Listeners
 <span class="pln">
 </span></code></pre>
@@ -220,11 +220,11 @@ description: 5
 	<li>Fill the Edittext and enter an Url, click the “Play” Button.</li>
 	<li>Wait for video to be displayed.</li>
 </ol>
-<img style="width: 220.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/playvideoswithvideokitone.PNG" onclick="imageclick(src)">      <img style="width: 220.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/playvideoswithvideokittwo.PNG" onclick="imageclick(src)">
+<img style="width: 220.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/playvideoswithvideokitone.PNG" onclick="imageclick(src)">             <img style="width: 215.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/playvideoswithvideokittwo.PNG" onclick="imageclick(src)">
 
 <h2><strong>Advanced Information</strong></h2>
 <ol type="1">
-  <h3><li>Seekbar:</li></h3>
+  <li><h3>Seekbar:</h3></li>
   <p>With the feature of Seekbar, displayed video can be rewound or forwarded.</p>
   
 <p><strong>1. Locate following line in Play Activity.</strong></p>
@@ -234,7 +234,7 @@ description: 5
 <pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar?.progress?.let {player.seek(it)}<span class="pln">
 </span></code></pre>
 
- <h3><li>Handler and Runnable:</li></h3>
+ <li><h3>Handler and Runnable:</h3></li>
 <p>A Handler allows you to send and process Message and Runnable objects associated with a thread's MessageQueue. With the feature of Handler, we can update the UI elements for every 1 seconds.</p>
 <p><strong>1. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button33" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Handler and Runnable Implementation<span class="pln">
