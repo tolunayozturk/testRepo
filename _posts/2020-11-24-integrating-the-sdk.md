@@ -91,7 +91,7 @@ description: 5
 <p><strong>Step 4</strong>: In the Android Studio window, choose <strong>File</strong> &gt; <strong>Sync Project with Gradle Files</strong> to synchronize the project.</p>
 <p><strong>Step 5</strong>: Complete the essentials in the code; locate and open the MainActivity.kt</p>
 <p><strong>1. Locate following line to create the Wise Player Factory instance in WisePlayerInit Object.</strong></p>
-<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    // TODO: Create an ImageVision Instance<span class="pln">
+<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    //TODO Initializing of Wise Player Factory<span class="pln">
 </span></code></pre>
 <p><strong>2. Create the Wise Player Factory instance</strong></p>
 <pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
@@ -134,7 +134,7 @@ description: 5
 <p><strong>3. Locate following line and set the EditTexts Urls in MainActivity to play related buttons</strong></p>
 <pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>   // TODO Set video Url or Urls<span class="pln">
 </span></code></pre>
-<p><strong>4.Set the EditTexts Urls  </strong></p>
+<p><strong>4.Set the EditTexts Urls </strong></p>
 <pre><div id="copy-button13" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> edtUrl.setText(resources.getString(R.string.single_url))
  edtMultipleUrl.setText(resources.getString(R.string.multiple_url))<span class="pln">
 </span></code></pre>
@@ -142,9 +142,7 @@ description: 5
 <pre><div id="copy-button14" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  // TODO Initializing of Wise Player Instance<span class="pln">
 </span></code></pre>
 <p><strong>6. Create Wise Player Instance</strong></p>
-<pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
-	return wisePlayerFactory.createWisePlayer()
-<span class="pln">
+<pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  return wisePlayerFactory.createWisePlayer()<span class="pln">
 </span></code></pre>
 <p><strong>7. Frame Layout and Surface View Snippet from XML of PlayActivity. Frame Layout is necessary for Surface View to display videos otherwise only audio will be listened </strong></p>
 <pre><div id="copy-button16" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>
@@ -162,8 +160,7 @@ description: 5
             android:id="@+id/surfaceView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </FrameLayout>
- <span class="pln">
+    </FrameLayout> <span class="pln">
 </span></code></pre>
 <p><strong>8.Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting the Listeners
