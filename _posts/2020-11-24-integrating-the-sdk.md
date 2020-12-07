@@ -66,7 +66,7 @@ description: 5
 		</span><span class="pun">-</span><span class="pln">keep </span><span class="kwd">class</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">huawei</span><span class="pun">.</span><span class="pln">hms</span><span class="pun">.**{*;}</span><span class="pln">
 		</span></code></pre>
 	</li>
-	<li>If you are using AndResGuard, add it to the allowlist in the obfuscation script file.<pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>       <span class="str">"R.string.hms*"</span><span class="pun">,</span><span class="pln">
+	<li>If you are using AndResGuard, add it to the allowlist in the obfuscation script file.<pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>           <span class="str">"R.string.hms*"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.connect_server_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.getting_message_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.no_available_network_prompt_toast"</span><span class="pun">,</span><span class="pln">
@@ -91,7 +91,8 @@ description: 5
 <p><strong>Step 4</strong>: In the Android Studio window, choose <strong>File</strong> &gt; <strong>Sync Project with Gradle Files</strong> to synchronize the project.</p>
 <p><strong>Step 5</strong>: Complete the essentials in the code; locate and open the MainActivity.kt</p>
 <p><strong>1. Locate following line to create the Wise Player Factory instance in WisePlayerInit Object.</strong></p>
-<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    //TODO Initializing of Wise Player Factory<span class="pln">
+<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    //TODO Initializing of Wise Player Factory
+<span class="pln">
 </span></code></pre>
 <p><strong>2. Create the Wise Player Factory instance</strong></p>
 <pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
@@ -105,7 +106,8 @@ description: 5
         override fun onFailure(errorCode: Int, msg: String) {
             Log.d("WisePlayerInit", "onFailure: $errorCode - $msg")
         }
-    })<span class="pln">
+    })
+<span class="pln">
 </span></code></pre>
 <p>Description of <strong>Wise Player Factory</strong> is as following:<br></p>
 <table style="width: 100%;table-layout: fixed;">
@@ -132,17 +134,21 @@ description: 5
 	</td></tr>
 </tbody></table>
 <p><strong>3. Locate following line and set the EditTexts Urls in MainActivity to play related buttons</strong></p>
-<pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>   // TODO Set video Url or Urls<span class="pln">
+<pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>   // TODO Set video Url or Urls
+<span class="pln">
 </span></code></pre>
 <p><strong>4.Set the EditTexts Urls </strong></p>
 <pre><div id="copy-button13" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> edtUrl.setText(resources.getString(R.string.single_url))
- edtMultipleUrl.setText(resources.getString(R.string.multiple_url))<span class="pln">
+ edtMultipleUrl.setText(resources.getString(R.string.multiple_url))
+ <span class="pln">
 </span></code></pre>
 <p><strong>5. Locate following line and create Wise Player Instance in WisePlayerInit Object. </strong></p>
-<pre><div id="copy-button14" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  // TODO Initializing of Wise Player Instance<span class="pln">
+<pre><div id="copy-button14" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  // TODO Initializing of Wise Player Instance
+<span class="pln">
 </span></code></pre>
 <p><strong>6. Create Wise Player Instance</strong></p>
-<pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  return wisePlayerFactory.createWisePlayer()<span class="pln">
+<pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  return wisePlayerFactory.createWisePlayer()
+<span class="pln">
 </span></code></pre>
 <aside class="special">
 	<p><strong>Note: Frame Layout is necessary for SurfaceView to display videos, otherwise only audio will be listened</strong></p>
@@ -167,32 +173,36 @@ description: 5
 <span class="pln">
 </span></code></pre>
 <p><strong>10. Set the Callback Listener in Play Activity.</strong></p>
-<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  surfaceView.holder.addCallback(this)<span class="pln">
+<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  surfaceView.holder.addCallback(this)
+<span class="pln">
 </span></code></pre>
 <p><strong>11. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Starting the Player
 	<span class="pln">
 </span></code></pre>
 <p><strong>12. Start Wise Player in Play Activity.</strong></p>
-<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  this.player.start()<span class="pln">
+<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  this.player.start()
+<span class="pln">
 </span></code></pre>
 <p><strong>13. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Change
-	<span class="pln">
+<span class="pln">
 </span></code></pre>
 <p><strong>14. Set surface change to Wise Player.</strong></p>
-<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setSurfaceChange()<span class="pln">
+<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setSurfaceChange()
+<span class="pln">
 </span></code></pre>
 <p><strong>15. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Destroy
-	<span class="pln">
+<span class="pln">
 </span></code></pre>
 <p><strong>16. Suspend the Wise Player if surface is destroyed.</strong></p>
-<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.suspend()<span class="pln">
+<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.suspend()
+<span class="pln">
 </span></code></pre>
 <p><strong>17. Locate following line in Play Activity. </strong></p>
 <pre><div id="copy-button27" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Create
-	<span class="pln">
+<span class="pln">
 </span></code></pre>
 <p><strong>18. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
 <pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setView(surfaceView)
@@ -210,7 +220,8 @@ description: 5
   player.setLoadingListener(null)
   player.setPlayEndListener(null)
   player.setSeekEndListener(null)
-  player.release()<span class="pln">
+  player.release()
+<span class="pln">
 </span></code></pre>
 
 <h2><strong>Test and Verification</strong></h2>
@@ -229,16 +240,19 @@ description: 5
   <p>With the feature of Seekbar, displayed video can be rewound or forwarded.</p>
   
 <p><strong>1. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button31" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Seekbar Change<span class="pln">
+<pre><div id="copy-button31" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Seekbar Change
+<span class="pln">
 </span></code></pre>
 <p><strong>2. Implement the Wise Player’s seek method.</strong></p>
-<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar?.progress?.let {player.seek(it)}<span class="pln">
+<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar?.progress?.let {player.seek(it)}
+<span class="pln">
 </span></code></pre>
 
  <li><h3>Handler and Runnable:</h3></li>
 <p>A Handler allows you to send and process Message and Runnable objects associated with a thread's MessageQueue. With the feature of Handler, we can update the UI elements for every 1 seconds.</p>
 <p><strong>1. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button33" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Handler and Runnable Implementation<span class="pln">
+<pre><div id="copy-button33" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Handler and Runnable Implementation
+<span class="pln">
 </span></code></pre>
 <p><strong>2. Implement the Wise Player’s seek method.</strong></p>
 <pre><div id="copy-button34" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>        //Player UI
@@ -247,6 +261,7 @@ description: 5
         configureContentView()
         if (!mStopHandler) {
             mHandler.postDelayed(runnable, DELAY_SECOND)
-        }<span class="pln">
+        }
+        <span class="pln">
 </span></code></pre>
 </ol>
