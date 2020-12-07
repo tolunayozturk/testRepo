@@ -147,7 +147,7 @@ description: 5
 <aside class="special">
 	<p>Frame Layout is necessary for Surface View to display videos, otherwise only audio will be listened</p>
 </aside>
-<br><img style="width: 200.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/framelayout.PNG" onclick="imageclick(src)">
+<br><img style="width: 350.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/framelayout.PNG" onclick="imageclick(src)">
 <p><strong>7.Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting the Listeners
 <span class="pln">
@@ -224,7 +224,7 @@ description: 5
 
 <h2><strong>Advanced Information</strong></h2>
 <ol type="1">
-	<li>Seekbar:</p>
+  <li>Seekbar:</li>
   <p>With the feature of Seekbar, displayed video can be rewound or forwarded.</p>
   
 <p><strong>1. Locate following line in Play Activity.</strong></p>
@@ -234,7 +234,7 @@ description: 5
 <pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar?.progress?.let {player.seek(it)}<span class="pln">
 </span></code></pre>
 
-  <li>Handler and Runnable:</p>
+  <li>Handler and Runnable:</li>
 <p>A Handler allows you to send and process Message and Runnable objects associated with a thread's MessageQueue. With the feature of Handler, we can update the UI elements for every 1 seconds.</p>
 <p><strong>1. Locate following line in Play Activity.</strong></p>
 <pre><div id="copy-button33" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Handler and Runnable Implementation<span class="pln">
