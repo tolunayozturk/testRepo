@@ -189,7 +189,7 @@ description: 5
 	<span class="pln">
 </span></code></pre>
 <p><strong>13. Start Wise Player in Play Activity.</strong></p>
-<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  this.player.start()
+<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player?.start()
 <span class="pln">
 </span></code></pre>
 <p><strong>14. Locate following line in Play Activity. </strong></p>
