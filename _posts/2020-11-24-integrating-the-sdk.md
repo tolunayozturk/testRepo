@@ -66,7 +66,7 @@ description: 5
 		</span><span class="pun">-</span><span class="pln">keep </span><span class="kwd">class</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">huawei</span><span class="pun">.</span><span class="pln">hms</span><span class="pun">.**{*;}</span><span class="pln">
 		</span></code></pre>
 	</li>
-	<li>If you are using AndResGuard, add it to the allowlist in the obfuscation script file.<pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>              <span class="str">"R.string.hms*"</span><span class="pun">,</span><span class="pln">
+	<li>If you are using AndResGuard, add it to the allowlist in the obfuscation script file.<pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>               <span class="str">"R.string.hms*"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.connect_server_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.getting_message_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
 		</span><span class="str">"R.string.no_available_network_prompt_toast"</span><span class="pun">,</span><span class="pln">
@@ -176,45 +176,53 @@ description: 5
 <pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  surfaceView.holder.addCallback(this)
 <span class="pln">
 </span></code></pre>
-<p><strong>11. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Starting the Player
+<p><strong>10. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO Callback Listener
+<span class="pln">
+</span></code></pre>
+<p><strong>11. Set the Seekbar Listener in Play Activity.</strong></p>
+<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar.setOnSeekBarChangeListener(this)
+<span class="pln">
+</span></code></pre>
+<p><strong>12. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Starting the Player
 	<span class="pln">
 </span></code></pre>
-<p><strong>12. Start Wise Player in Play Activity.</strong></p>
-<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  this.player.start()
+<p><strong>13. Start Wise Player in Play Activity.</strong></p>
+<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  this.player.start()
 <span class="pln">
 </span></code></pre>
-<p><strong>13. Locate following line in Play Activity. </strong></p>
-<pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Change
+<p><strong>14. Locate following line in Play Activity. </strong></p>
+<pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Change
 <span class="pln">
 </span></code></pre>
-<p><strong>14. Set surface change to Wise Player.</strong></p>
-<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setSurfaceChange()
+<p><strong>15. Set surface change to Wise Player.</strong></p>
+<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setSurfaceChange()
 <span class="pln">
 </span></code></pre>
-<p><strong>15. Locate following line in Play Activity. </strong></p>
-<pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Destroy
+<p><strong>16. Locate following line in Play Activity. </strong></p>
+<pre><div id="copy-button27" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Destroy
 <span class="pln">
 </span></code></pre>
-<p><strong>16. Suspend the Wise Player if surface is destroyed.</strong></p>
-<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.suspend()
+<p><strong>17. Suspend the Wise Player if surface is destroyed.</strong></p>
+<pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.suspend()
 <span class="pln">
 </span></code></pre>
-<p><strong>17. Locate following line in Play Activity. </strong></p>
-<pre><div id="copy-button27" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Create
+<p><strong>18. Locate following line in Play Activity. </strong></p>
+<pre><div id="copy-button29" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Create
 <span class="pln">
 </span></code></pre>
-<p><strong>18. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
-<pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setView(surfaceView)
+<p><strong>19. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
+<pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setView(surfaceView)
   player.resume(PlayerConstants.ResumeType.KEEP)
 <span class="pln">
 </span></code></pre>
-<p><strong>19. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button29" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player
+<p><strong>20. Locate following line in Play Activity.</strong></p>
+<pre><div id="copy-button31" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player
 <span class="pln">
 </span></code></pre>
-<p><strong>20. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
-<pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setErrorListener(null)
+<p><strong>21. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
+<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setErrorListener(null)
   player.setEventListener(null)
   player.setResolutionUpdatedListener(null)
   player.setReadyListener(null)
@@ -241,22 +249,22 @@ description: 5
   <p>With the feature of Seekbar, displayed video can be rewound or forwarded.</p>
   
 <p><strong>1. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button31" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Seekbar Change
+<pre><div id="copy-button33" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Seekbar Change
 <span class="pln">
 </span></code></pre>
 <p><strong>2. Implement the Wise Player’s seek method.</strong></p>
-<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar?.progress?.let {player.seek(it)}
+<pre><div id="copy-button34" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar?.progress?.let {player.seek(it)}
 <span class="pln">
 </span></code></pre>
 
  <li><h3>Handler and Runnable:</h3></li>
 <p>A Handler allows you to send and process Message and Runnable objects associated with a thread's MessageQueue. With the feature of Handler, we can update the UI elements for every 1 seconds.</p>
 <p><strong>1. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button33" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Handler and Runnable Implementation
+<pre><div id="copy-button35" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Handler and Runnable Implementation
 <span class="pln">
 </span></code></pre>
 <p><strong>2. Implement the Wise Player’s seek method.</strong></p>
-<pre><div id="copy-button34" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>        //Player UI
+<pre><div id="copy-button36" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>        //Player UI
         configureControlView()
         //Text UI Elements 
         configureContentView()
