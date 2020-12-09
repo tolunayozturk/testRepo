@@ -134,7 +134,7 @@ description: 15
 <pre><div id="copy-button31" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player
 <span class="pln">
 </span></code></pre>
-<p><strong>22. Resume Wise Player with the current time when app is sent to foreground.</strong></p>
+<p><strong>22. Release Wise Player and listeners in Play Activity. </strong></p>
 <pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setErrorListener(null)
   player.setEventListener(null)
   player.setResolutionUpdatedListener(null)
