@@ -1058,7 +1058,7 @@ img {
 /* 点击图片添加大图 end*/
 
 .copy-btn:hover {
-  background: url("../media/copybacground-high.png") no-repeat;
+  background: url("../assets/copybacground-high.png") no-repeat;
   background-position: right;
   background-size: contain;
 }
@@ -1070,7 +1070,7 @@ img {
   border: none;
   outline: none;
   background-color: lightgrey;
-  background: url("../media/copybackgroud-light.png") no-repeat;
+  background: url("../assets/copybackgroud-light.png") no-repeat;
   background-position: right;
   background-size: contain;
   display: inline-block;
