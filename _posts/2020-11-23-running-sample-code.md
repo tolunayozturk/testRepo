@@ -1,5 +1,5 @@
 ---
-title: Running Sample Code
+title: Run the App
 description: 2
 ---
 
