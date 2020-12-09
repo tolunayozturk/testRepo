@@ -1,5 +1,5 @@
 ---
-title: Advanced Information
+title: Advanced Features
 description: 5
 ---
 
