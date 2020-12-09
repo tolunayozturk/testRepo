@@ -14,7 +14,7 @@
         <div id="steps">
 			{% for post in site.posts %}
             <huawei-codelab-step label="{{ post.title | escape }}" duration="{{ post.description }}">
-                <p>{{ post.content }}
+                {{ post.content }}
             </huawei-codelab-step>
 			{% endfor %}
         </div>
