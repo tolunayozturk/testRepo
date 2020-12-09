@@ -24,4 +24,5 @@ description: 1
 <ul>
 	<li>Android development basics</li>
 	<li>Basic MVP architecture knowledge</li>
+  <li>Basic Kotlin language knowledge</li>
 </ul>
