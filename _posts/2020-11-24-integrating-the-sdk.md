@@ -3,7 +3,7 @@ title: Integrating the SDK
 description: 5
 ---
 
-<huawei-codelab-about codelab-title="Huawei Video Kit SDK"  authors="Huawei Codelab Team">
+<huawei-codelab-about codelab-title="Huawei Video Kit" last-updated="2020-12-09T13:20:13-07:00" authors="Huawei Codelab Team">
 <div class="codelab-title">
 <div class="token">Huawei Video Kit</div></div>
 <div class="about-card">
@@ -94,5 +94,5 @@ description: 5
 </span><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"android.permission.ACCESS_NETWORK_STATE"</span><span class="tag">/&gt;</span><span class="pln">
 </span><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"android.permission.ACCESS_WIFI_STATE"</span><span class="tag">/&gt;</span><span class="pln">
 </span><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"com.huawei.permission.SECURITY_DIAGNOSE"</span><span class="tag">/&gt;</span><span class="pln">
-</span></code></pre>
+  </span></code></pre>
 <p><strong>Step 4</strong>: In the Android Studio window, choose <strong>File</strong> &gt; <strong>Sync Project with Gradle Files</strong> to synchronize the project.</p>
