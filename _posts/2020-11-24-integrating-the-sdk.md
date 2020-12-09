@@ -1,5 +1,5 @@
 ---
-title: Integrating the SDK
+title: Set up the Project
 description: 5
 ---
 
