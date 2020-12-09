@@ -9,7 +9,7 @@
  
  
 ## Introduction
-    Videokit Codelab code encapsulates APIs of the HUAWEI Video Kit SDK. It provides many sample programs for your reference or usage.
+    HMS Video Kit Codelab code encapsulates APIs of the HUAWEI Video Kit SDK. It provides many sample programs for your reference or usage.
     Before you use this codelab, it's assumed that you already have a HUAWEI developer account and have already created an app to implement the
 HMS Video Kit. If you haven't, please refer to https://developer.huawei.com/consumer/en/doc/start/introduction-0000001053446472 and https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-introduction.
     
@@ -18,8 +18,8 @@ HMS Video Kit. If you haven't, please refer to https://developer.huawei.com/cons
     utils:       The Package which helps the video duration and current time values shown in the ui.
 
 ## Installation
-    Before using Videokit Codelab code, check whether the Android Studio environment has been installed. 
-    Download the Videokit Codelab project by zip or clone in Github.
+    Before using HMS Video Kit Codelab code, check whether the Android Studio environment has been installed. 
+    Download the HMS Video Kit Codelab project by zip or clone in Github.
     Wait for the gradle build in your project.
     
 ## Supported Environments
@@ -34,7 +34,7 @@ HMS Video Kit. If you haven't, please refer to https://developer.huawei.com/cons
     deviceId: Unique device ID, which is set by an app. The WisePlayer SDK is used to request content authentication and report O&M data. The app can ensure that the device ID does not involve user privacy information by generating a UUID or using methods such as SHA-based digest or obfuscation.
 	
 ## Sample Code
-    Videokit Codelab code uses the Client structure in the project.The following describes methods in the Client structure.
+    HMS Video Kit Codelab code uses the Client structure in the project.The following describes methods in the Client structure.
 
     1). Initiliaze WisePlayerFactory instance.
     You can obtain the initialized WisePlayerFactory instance using the initialize method in the WisePlayerInit object.
@@ -65,4 +65,4 @@ HMS Video Kit. If you haven't, please refer to https://developer.huawei.com/cons
     Code location src/main/java/com.dtse.videokitcodelab/ui/player/PlayerActivity.kt
 
 ##  License
-    Videokit Codelab is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+    HMS Video Kit Codelab is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
