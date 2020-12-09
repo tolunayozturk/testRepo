@@ -3,6 +3,15 @@ title: "Introduction"
 description: 1
 ---
 
+<huawei-codelab-about codelab-title="Huawei Video Kit" last-updated="2020-12-09T13:20:13-07:00" authors="Huawei Codelab Team">
+<div class="codelab-title">
+<div class="token">Huawei Video Kit</div></div>
+<div class="about-card">
+<h2 class="title">About this codelab</h2>
+<div class="last-updated"><i class="material-icons">subject</i>Last updated Dec 09, 2020</div>
+<div class="authors"><i class="material-icons">account_circle</i>Written by Huawei Codelab Team</div></div>
+</huawei-codelab-about>
+
 <p>
 	HUAWEI Video Kit provides video playback in this version, and will support video editing and video hosting in later versions, helping you quickly build desired video features to deliver a superb video experience to your app users.
 </p>
