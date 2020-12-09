@@ -1,5 +1,5 @@
 ---
-title: Integrating the SDK
+title: Advanced Information
 description: 5
 ---
 
