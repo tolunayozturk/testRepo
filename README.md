@@ -35,31 +35,31 @@
 ## Sample Code
     HMS Video Kit Codelab code uses the Client structure in the project.The following describes methods in the Client structure.
 
-    1). Initiliaze WisePlayerFactory instance.
+    1) Initiliaze WisePlayerFactory instance.
     You can obtain the initialized WisePlayerFactory instance using the initialize method in the WisePlayerInit object.
     Code location src/main/java/com.dtse.videokitcodelab/WisePlayerInit.kt
     
-    2). Create WisePlayer instance
+    2) Create WisePlayer instance
     You can obtain the initialized Wise Player instance using the createPlayer method in the WisePlayerInit object.
     Code location  src/main/java/com.dtse.videokitcodelab/WisePlayerInit.kt
     
-    3). Playing Single Video Url
+    3) Playing Single Video Url
     You can play a video by specfying a video Url.
     Code location src/main/java/com.dtse.videokitcodelab/ui/main/MainActivity.kt
     
-    4). Playing Multiple Video Urls
+    4) Playing Multiple Video Urls
     You can play a video by specfying multiple video Urls.
     Code location src/main/java/com.dtse.videokitcodelab/ui/main/MainActivity.kt
     
-    5). Using FrameLayout in the UI
+    5) Using FrameLayout in the UI
     Videos can only be displayed if the FrameLayout is created in the xml.
     Code location src/main/res/layout/activity_player.xml
     
-    6). Using Only Audio Mode
+    6) Using Only Audio Mode
     Only audio can only be listened by the Wise Player's play mode settings.
     Code location src/main/java/com.dtse.videokitcodelab/ui/player/PlayerActivity.kt
     
-    7). Video Rewinding and Forwarding Options
+    7) Video Rewinding and Forwarding Options
     Displaying videos can be rewound or forwarded with the Wise Player's seek feature.
     Code location src/main/java/com.dtse.videokitcodelab/ui/player/PlayerActivity.kt
 
