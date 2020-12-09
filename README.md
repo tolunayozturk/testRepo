@@ -1,6 +1,3 @@
-## Videokit Codelab
-
-
 ## Table of Contents
 
  * [Introduction](#introduction)
