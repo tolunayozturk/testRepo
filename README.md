@@ -10,8 +10,7 @@
  
 ## Introduction
     HMS Video Kit Codelab code encapsulates APIs of the HUAWEI Video Kit SDK. It provides many sample programs for your reference or usage.
-    Before you use this codelab, it's assumed that you already have a HUAWEI developer account and have already created an app to implement the
-HMS Video Kit. If you haven't, please refer to https://developer.huawei.com/consumer/en/doc/start/introduction-0000001053446472 and https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-introduction.
+    Before you use this codelab, it's assumed that you already have a HUAWEI developer account and have already created an app to implement the HMS Video Kit. If you haven't,    please refer to https://developer.huawei.com/consumer/en/doc/start/introduction-0000001053446472 and https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-introduction.
     
     model:       The package name which refers to a video object.
     ui:          The package name which shows the interface of the app to the user.
