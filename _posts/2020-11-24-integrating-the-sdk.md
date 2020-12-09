@@ -3,14 +3,7 @@ title: Integrating the SDK
 description: 5
 ---
 
-<huawei-codelab-about codelab-title="Huawei Video Kit" last-updated="2020-12-09T13:20:13-07:00" authors="Huawei Codelab Team">
-<div class="codelab-title">
-<div class="token">Huawei Video Kit</div></div>
-<div class="about-card">
-<h2 class="title">Download Codelab Project</h2>
-<div class="last-updated"><a href="https://github.com/huaweicodelabs/VideoKit/tree/master/PlayVideosWithVideoKit" target="_blank">https://github.com/huaweicodelabs/VideoKit/tree/master/PlayVideosWithVideoKit</a></div>
-<div class="authors"><i class="material-icons">account_circle</i>Written by Huawei Codelab Team</div></div>
-</huawei-codelab-about>
+<p>You can download the codelab project from: <a href="https://github.com/huaweicodelabs/VideoKit/tree/master/PlayVideosWithVideoKit" target="_blank">https://github.com/huaweicodelabs/VideoKit/tree/master/PlayVideosWithVideoKit</a></p>
 
 <h2><strong>Creating a Project</strong></h2>
 <p><strong>Step 1</strong>: Start Android Studio.</p>
