@@ -1,5 +1,5 @@
 ---
-title: Run the App
+title: Running Your App
 description: 2
 ---
 
