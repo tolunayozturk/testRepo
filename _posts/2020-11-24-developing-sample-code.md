@@ -1,5 +1,5 @@
 ---
-title: Developing Sample Code
+title: Create Wiseplayer and Play Video
 description: 15
 ---
 
