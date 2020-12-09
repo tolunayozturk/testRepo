@@ -1,6 +1,6 @@
 ---
 title: "Preparing for the Integration"
-description: 20
+description: 10
 ---
 
 <p>Before you get started, complete the following preparations:</p>
