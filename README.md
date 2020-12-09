@@ -28,7 +28,6 @@ HMS Video Kit. If you haven't, please refer to https://developer.huawei.com/cons
 ## Supported Environments
 	•	Android Studio 3.x or later version
 	•	Java JDK 1.8 or later version
-	•	Android API Level 19 or higher version
 	•	EMUI 3.0 or later version
 	•	HMS Core (APK) 5.0.0.300 or later version
 
@@ -66,9 +65,6 @@ HMS Video Kit. If you haven't, please refer to https://developer.huawei.com/cons
     
     7). Video Rewinding and Forwarding Options
     Displaying videos can be rewound or forwarded with the Wise Player's seek feature.
-    Code location src/main/java/com.dtse.videokitcodelab/ui/player/PlayerActivity.kt
-    
-    8). Send a test message.
     Code location src/main/java/com.dtse.videokitcodelab/ui/player/PlayerActivity.kt
 
 ##  License
