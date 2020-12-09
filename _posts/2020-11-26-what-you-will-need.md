@@ -23,6 +23,5 @@ description: 1
 </h2>
 <ul>
 	<li>Android development basics</li>
-	<li>Basic Handler and Runnable knowledge</li>
-  <li>Basic Seekbar knowledge</li>
+	<li>Basic MVP knowledge</li>
 </ul>
