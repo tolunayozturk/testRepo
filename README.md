@@ -28,9 +28,15 @@
 	•	HMS Core (APK) 5.0.0.300 or later version
 
 ## Configuration 
-    To use functions provided by packages in examples, you need to set related parameters in Video Kit Codelab in the WisePlayerInit Object.
-    
-    deviceId: Unique device ID, which is set by an app. The WisePlayer SDK is used to request content authentication and report O&M data. The app can ensure that the device ID does not involve user privacy information by generating a UUID or using methods such as SHA-based digest or obfuscation.
+    1. Register and sign in to HUAWEI Developers.
+    2. Create a project and then create an app in the project, enter the project package name.
+    3. Go to Project Settings > Manage APIs, find the Video Kit API, and enable it.
+    4. Go to Project Settings > General information, click Set next to Data storage location under Project information, and select a data storage location in the displayed dialog box.
+    5. Download the agconnect-services.json file and place it to the app's root directory of the project.
+    6. Add the Maven repository address maven {url 'https://developer.huawei.com/repo/'} and plug-in class path 'com.huawei.agconnect:agcp:1.4.1.300' to the project-level build.gradle file.
+    7. Add apply plugin: 'com.huawei.agconnect' to the last line of the app-level build.gradle file.
+    8. Configure the dependency com.huawei.hms:videokit-player:1.0.1.300 in the app-level buildle.gradle file.
+    9. Synchronize the project.
 	
 ## Sample Code
     HMS Video Kit Codelab code uses the Client structure in the project.The following describes methods in the Client structure.
@@ -56,7 +62,7 @@
     Code location src/main/res/layout/activity_player.xml
     
     6) Using Only Audio Mode
-    Only audio can only be listened by the Wise Player's play mode settings.
+    Only audio can be listened by adjusting the Wise Player's play mode settings.
     Code location src/main/java/com.dtse.videokitcodelab/ui/player/PlayerActivity.kt
     
     7) Video Rewinding and Forwarding Options
