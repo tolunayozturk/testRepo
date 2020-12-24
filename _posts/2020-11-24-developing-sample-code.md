@@ -93,7 +93,7 @@ description: 15
 <span class="pln">
 </span></code></pre>
 <p><strong>11. Locate following line in Play Activity. </strong></p>
-<pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO setting Player suspend, resume and surface methods
+<pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Player suspend, resume and surface methods setting
 <span class="pln">
 </span></code></pre>
 <p><strong>12. Set surface change, suspend, view and resume methods to Wise Player.</strong></p>
