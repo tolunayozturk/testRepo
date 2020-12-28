@@ -3,7 +3,7 @@ title: Integrating the Location Barrier capabilities
 description: 15
 ---
 
-<p><strong>1. First, define the location and the radius we want to be notified of when a user enters that area.</strong></p>
+<p><strong>1. First, define the location and the radius to be notified of when a user enters that area.</strong></p>
 <pre>
 <code>
 // Example location
