@@ -3,124 +3,124 @@ title: Create Wiseplayer and Play Video
 description: 15
 ---
 
-<p><strong>1. Locate following line to create the Wise Player Factory instance in WisePlayerInit Object.</strong></p>
-<pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    //TODO Initializing of Wise Player Factory
-<span class="pln">
-</span></code></pre>
-<p><strong>2. Create the Wise Player Factory instance</strong></p>
-<pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
-    // In the multi-process scenario, the onCreate method in Application is called multiple times.
-    // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
-    // and WisePlayer process (named "app package name:player").
-    WisePlayerFactory.initFactory(context, factoryOptions, object : InitFactoryCallback {
-        override fun onSuccess(factory: WisePlayerFactory) {
-            wisePlayerFactory = factory
+<p><strong>1. First, define the location and the radius we want to be notified of when a user enters that area.</strong></p>
+<pre>
+<code>
+// Example location
+double latitude = 12.3456;
+double longitude = 78.9012;
+double radius = 305;
+</code>
+</pre>
+
+Remember the radius should be at least 200 meters.
+
+<p><strong>2. Define the PendingIntent that will be triggered upon a barrier status change, and register a broadcast receiver to receive the broadcast.</strong></p>
+<pre>
+<code>
+final String barrierReceiverAction = getApplication().getPackageName() + "LOCATION_BARRIER_RECEIVER_ACTION";
+Intent intent = new Intent(barrierReceiverAction);
+mPendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+mBarrierReceiver = new LocationBarrierReceiver();
+registerReceiver(mBarrierReceiver, new IntentFilter(barrierReceiverAction));
+</code>
+</pre>
+
+<p><strong>3. Create and add the barrier </strong></p>
+<pre>
+<code>
+private void addBarrier(Context context, final String label,
+                            AwarenessBarrier barrier, PendingIntent pendingIntent) {
+        BarrierUpdateRequest.Builder builder = new BarrierUpdateRequest.Builder();
+        BarrierUpdateRequest request = builder.addBarrier(label, barrier, pendingIntent).build();
+        Awareness.getBarrierClient(context).updateBarriers(request)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(context, "add barrier " + label + " success",
+                            Toast.LENGTH_SHORT).show();
+                    Log.i(TAG, "add barrier success");
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(context, "add barrier " + label + " success",
+                            Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "add barrier failed", e);
+                });
+    }
+</code>
+</pre>
+
+<pre>
+<code>
+AwarenessBarrier enterBarrier = LocationBarrier.enter(latitude, longitude, radius);
+addBarrier(this, ENTER_BARRIER_LABEL, enterBarrier, mPendingIntent);
+</code>
+</pre>
+
+Remember that you need to create the barrier only if your app has the neccessary permissions so check the permissions before creating a location barrier.
+
+<pre>
+<code>
+ @Override
+    public void onRequestPermissionsResult(
+            int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            boolean isPermissionDenied = false;
+            for (int result : grantResults) {
+                if (result == PackageManager.PERMISSION_DENIED) {
+                    isPermissionDenied = true;
+                }
+            }
+
+            if (isPermissionDenied) {
+                Toast.makeText(this, "PERMISSION DENIED", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "PERMISSION GRANTED", Toast.LENGTH_LONG).show();
+
+                @SuppressLint("MissingPermission") AwarenessBarrier enterBarrier = LocationBarrier.enter(latitude, longitude, radius);
+                addBarrier(this, ENTER_BARRIER_LABEL, enterBarrier, mPendingIntent);
+
+                @SuppressLint("MissingPermission") AwarenessBarrier exitBarrier = LocationBarrier.enter(latitude, longitude, radius);
+                addBarrier(this, EXIT_BARRIER_LABEL, exitBarrier, mPendingIntent);
+            }
         }
-        override fun onFailure(errorCode: Int, msg: String) {
-            Log.d("WisePlayerInit", "onFailure: $errorCode - $msg")
+    }
+</code>
+</pre>
+
+<p><strong>4. If a user enters the area we specified, we will be notified via LocationBarrierReceiver class. </strong></p>
+<pre>
+<code>
+class LocationBarrierReceiver extends BroadcastReceiver {
+        private final String TAG = LocationBarrierReceiver.class.getSimpleName();
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            BarrierStatus barrierStatus = BarrierStatus.extract(intent);
+            String label = barrierStatus.getBarrierLabel();
+            switch (barrierStatus.getPresentStatus()) {
+                case BarrierStatus.TRUE:
+                    Log.i(TAG, label + " status:true" + barrierStatus.getLastBarrierUpdateTime());
+                    printLog(label + " status:true");
+
+                    if (label.equals("ENTER_BARRIER_LABEL")) {
+                        mChronometer.setBase(SystemClock.elapsedRealtime());
+                        mChronometer.start();
+                    } else if (label.equals("EXIT_BARRIER_LABEL")) {
+                        mChronometer.stop();
+                        double elapsedMillis = SystemClock.elapsedRealtime() - mChronometer.getBase();
+                        printLog("Length of stay: " + elapsedMillis / 1000 + " seconds");
+                    }
+                    break;
+                case BarrierStatus.FALSE:
+                    Log.i(TAG, label + " status:false");
+                    printLog(label + " status:false");
+                    break;
+                case BarrierStatus.UNKNOWN:
+                    Log.i(TAG, label + " status:unknown");
+                    printLog(label + " status:unknown");
+                    break;
+            }
         }
-    })
-<span class="pln">
-</span></code></pre>
-<p>Description of <strong>Wise Player Factory</strong> is as following:<br></p>
-<table style="width: 100%;table-layout: fixed;">
-	<tbody><tr></tr>
-	<tr><td colspan="1" rowspan="1"><p>Parameter</p>
-	</td><td colspan="1" rowspan="1"><p>Type:</p>
-	</td><td colspan="1" rowspan="1"><p>Mandatory or Not</p>
-	</td><td colspan="1" rowspan="1"><p>Description</p>
-	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>context</p>
-	</td><td colspan="1" rowspan="1"><p>Context</p>
-	</td><td colspan="1" rowspan="1"><p>M</p>
-	</td><td colspan="1" rowspan="1"><p>Android context object, which is not set to null.</p>
-	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>options</p>
-	</td><td colspan="1" rowspan="1"><p>Integer</p>
-	</td><td colspan="1" rowspan="1"><p>M</p>
-	</td><td colspan="1" rowspan="1"><p>Instance of the WisePlayer factory class initialization option <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/wpf-options-0000001050439397-V5" target="_blank">WisePlayerFactoryOptions</a></p>
-	</td></tr>
-	<tr><td colspan="1" rowspan="1"><p>callback</p>
-	</td><td colspan="1" rowspan="1"><p>Object</p>
-	</td><td colspan="1" rowspan="1"><p>M</p>
-	</td><td colspan="1" rowspan="1"><p>Instance of the <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/init-factory-callback-0000001050199187-V5" target="_blank">InitFactoryCallback API</a> for initializing the WisePlayer factory class.</p>
-	</td></tr>
-</tbody></table>
-<p><strong>3. Locate following line and set the EditTexts Urls in MainActivity to play related buttons</strong></p>
-<pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>   // TODO Set video Url or Urls
-<span class="pln">
-</span></code></pre>
-<p><strong>4.Set the EditTexts Urls </strong></p>
-<pre><div id="copy-button13" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> edtUrl.setText(resources.getString(R.string.single_url))
- edtMultipleUrl.setText(resources.getString(R.string.multiple_url))
- <span class="pln">
-</span></code></pre>
-<p><strong>5. Locate following line and create Wise Player Instance in WisePlayerInit Object. </strong></p>
-<pre><div id="copy-button14" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  // TODO Initializing of Wise Player Instance
-<span class="pln">
-</span></code></pre>
-<p><strong>6. Create Wise Player Instance</strong></p>
-<pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  return wisePlayerFactory.createWisePlayer()
-<span class="pln">
-</span></code></pre>
-<aside class="special">
-	<p><strong>Note: Frame Layout is necessary for SurfaceView to display videos, otherwise only audio will be listened</strong></p>
-</aside>
-<br><img style="width: 400.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/framelayout.PNG" onclick="imageclick(src)">
-<p><strong>7. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting Player, Callback and Seekbar listeners
-<span class="pln">
-</span></code></pre>
-<p><strong>8. Set listeners in Play Activity.</strong></p>
-<pre><div id="copy-button18" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setReadyListener(this)
-  player.setReadyListener(this)
-  player.setErrorListener(this)
-  player.setEventListener(this)
-  player.setResolutionUpdatedListener(this)
-  player.setLoadingListener(this)
-  player.setPlayEndListener(this)
-  player.setSeekEndListener(this)
-  surfaceView.holder.addCallback(this)
-  seekBar.setOnSeekBarChangeListener(this)
-  <span class="pln">
-</span></code></pre>
-<p><strong>9. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Starting the Player
-	<span class="pln">
-</span></code></pre>
-<p><strong>10. Start Wise Player in Play Activity.</strong></p>
-<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player?.start()
-<span class="pln">
-</span></code></pre>
-<p><strong>11. Locate following line in Play Activity. </strong></p>
-<pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Player suspend, resume and surface methods setting
-<span class="pln">
-</span></code></pre>
-<p><strong>12. Set surface change, suspend, view and resume methods to Wise Player.</strong></p>
-<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
-        player.setSurfaceChange()
     }
-    override fun surfaceDestroyed(holder: SurfaceHolder) {
-        player.suspend()
-    }
-    override fun surfaceCreated(holder: SurfaceHolder) {
-        player.setView(surfaceView)
-        player.resume(PlayerConstants.ResumeType.KEEP)
-    }
-<span class="pln">
-</span></code></pre>
-<p><strong>13. Locate following line in Play Activity.</strong></p>
-<pre><div id="copy-button31" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player
-<span class="pln">
-</span></code></pre>
-<p><strong>14. Release Wise Player and listeners in Play Activity. </strong></p>
-<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setErrorListener(null)
-  player.setEventListener(null)
-  player.setResolutionUpdatedListener(null)
-  player.setReadyListener(null)
-  player.setLoadingListener(null)
-  player.setPlayEndListener(null)
-  player.setSeekEndListener(null)
-  player.release()
-<span class="pln">
-</span></code></pre>
+</code>
+</pre>
