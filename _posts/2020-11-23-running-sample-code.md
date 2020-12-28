@@ -8,8 +8,8 @@ description: 2
 
 <ol type="1">
 	<li>Open the app upon installing it to your device</li>
-	<li>Fill the Edittext and enter an Url, click the “Play” Button.</li>
-	<li>Wait for video to be displayed.</li>
+	<li>Make sure you've defined a location that is 200m away from you or more.</li>
+	<li> Enter the radius of the location you defined earlier </li>
+  <li>Once you enter the radius of that location, the app will start measuring the length of stay.</li>
+  <li>Exit the location and the length of stay will be printed on screen.</li>
 </ol>
-<img style="width: 220.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/videokitone.jpg" onclick="imageclick(src)">             <img style="width: 217.00px" src="https://raw.githubusercontent.com/bekiryavuzkoc/testRepo/gh-pages/assets/playvideoswithvideokittwo.PNG" onclick="imageclick(src)">
-
