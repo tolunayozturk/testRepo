@@ -27,3 +27,4 @@ description: 1
 	<li>How to develop a barrier triggered by the enter condition</li>
 	<li>How to develop a barrier triggered by the exit condition</li>
 </ul>
+
