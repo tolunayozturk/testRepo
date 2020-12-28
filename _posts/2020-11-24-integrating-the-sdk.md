@@ -87,11 +87,11 @@ description: 5
 </span><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"android.permission.ACCESS_BACKGROUND_LOCATION"</span><span class="tag">/&gt;</span></code></pre>
 
 <p><strong>Step 5</strong>: Add the following configuration to the build.gradle file:</p>
-<code>
+<pre><code>
 compileOptions {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 }
-</code>
+</code></pre>
 
 <p><strong>Step 6</strong>: In the Android Studio window, choose <strong>File</strong> &gt; <strong>Sync Project with Gradle Files</strong> to synchronize the project.</p>
