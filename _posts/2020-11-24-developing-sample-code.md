@@ -87,7 +87,7 @@ Remember that you need to create the barrier only if your app has the neccessary
 </code>
 </pre>
 
-<p><strong>4. If a user enters the area we specified, we will be notified via LocationBarrierReceiver class. </strong></p>
+<p><strong>4. If a user enters the specified area, we will be notified via LocationBarrierReceiver class. </strong></p>
 <pre>
 <code>
 class LocationBarrierReceiver extends BroadcastReceiver {
