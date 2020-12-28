@@ -6,8 +6,8 @@ description: 1
 	<strong>Hardware Requirements</strong>
 </h2>
 <ul>
-	<li>One PC with Android Studio installed</li>
-	<li>One mobile phone with a USB data cable for running developed apps</li>
+	<li>A computer with Android Studio installed</li>
+	<li>A Huawei phone with a USB data cable for running the app</li>
 </ul>
 <h2>
 	<strong>Software Requirements</strong>
@@ -15,14 +15,5 @@ description: 1
 <ul>
 	<li>Android Studio 3.x or later version(<a href="https://developer.android.com/studio" target="_blank">Download</a>)</li>
   <li>Java JDK 1.8 or later version(<a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Download</a>)</li>
-	<li>EMUI 3.0 or later</li>
-	<li>HMS Core (APK) 5.0.0.300 or later</li>
-</ul>
-<h2>
-	<strong>Required Knowledge</strong>
-</h2>
-<ul>
-	<li>Android development basics</li>
-	<li>Basic MVP architecture knowledge</li>
-  <li>Basic Kotlin language knowledge</li>
+	<li>HMS Core (APK) 4.0.2.300 or later</li>
 </ul>
