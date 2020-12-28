@@ -1,5 +1,5 @@
 ---
-title: Create Wiseplayer and Play Video
+title: Integrating the Location Barrier capabilities
 description: 15
 ---
 
