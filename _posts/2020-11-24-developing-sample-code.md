@@ -41,7 +41,7 @@ private void addBarrier(Context context, final String label,
                     Log.i(TAG, "add barrier success");
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(context, "add barrier " + label + " success",
+                    Toast.makeText(context, "add barrier " + label + " failed",
                             Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "add barrier failed", e);
                 });
