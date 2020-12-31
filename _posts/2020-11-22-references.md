@@ -9,4 +9,4 @@ description: 1
 </ul>
 
 <p>You can find the full source code of this demo application in the link below.</p>
-<p><a href="https://github.com/tolunayozturk/hms-locationbarrierdemo" target="_blank"><paper-button class="colored" raised><iron-icon icon="file-download"></iron-icon>Download source code</paper-button></a></p>
+<p><a href="https://github.com/tolunayozturk/locationbarrier-codelab" target="_blank"><paper-button class="colored" raised><iron-icon icon="file-download"></iron-icon>Download source code</paper-button></a></p>
