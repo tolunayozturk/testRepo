@@ -44,7 +44,20 @@ description: 5
 		</span><span class="pun">...</span><span class="pln">
     </span><span class="str">            //Awareness Kit</span><span class="pln">
 		implementation </span><span class="str">'com.huawei.hms:awareness:1.0.7.303'</span><span class="pln">
-		</span><span class="pun">...</span><span class="pln">
+		</span>
+    <span class="str">            //Analytics Kit</span><span class="pln">
+		implementation </span><span class="str">'com.huawei.hms:hianalytics:5.0.5.301'</span><span class="pln">
+		</span>
+    <span class="str">            //Auth Service to use CloudDB</span><span class="pln">
+		implementation </span><span class="str">'com.huawei.agconnect:agconnect-auth:1.4.2.301'</span><span class="pln">
+		</span>
+    <span class="str">            //CloudDB</span><span class="pln">
+		implementation </span><span class="str">'com.huawei.agconnect:agconnect-database:1.2.3.301'</span><span class="pln">
+		</span>
+    <span class="str">            //Account Kit to setUserId and associate user in Analytics Kit</span><span class="pln">
+		implementation </span><span class="str">implementation 'com.huawei.hms:hwid:5.1.0.301'</span><span class="pln">
+		</span>
+    <span class="pun">...</span><span class="pln">
 	</span><span class="pun">}</span><span class="pln">
 	</span></code></pre>
   <p>For Awareness Kit, please refer to <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/version-change-history-0000001050033093" target="_blank">latest version</a>.</p>
