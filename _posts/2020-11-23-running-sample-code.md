@@ -14,8 +14,8 @@ description: 2
   <li>Exit the location and the length of stay will be printed on screen.</li>
 </ol>
 
-In AppGallery Connect, we can see the data we sent about our users' stay duration
-<img style="width: 376.00px" src="https://raw.githubusercontent.com/tolunayozturk/testRepo/gh-pages/assets/13.png" onclick="imageclick(src)">
+In AppGallery Connect, we can see the data in CloudDB that we sent about our users' stay duration
+<center><img style="width: 376.00px" src="https://raw.githubusercontent.com/tolunayozturk/testRepo/gh-pages/assets/13.png" onclick="imageclick(src)"></center>
 
 Here is the real time output of our demo app, showing the length of stay and querying the average length of stay of the user
-<img style="width: 376.00px" src="https://raw.githubusercontent.com/tolunayozturk/testRepo/gh-pages/assets/12.png" onclick="imageclick(src)">
+<center><img style="width: 376.00px" src="https://raw.githubusercontent.com/tolunayozturk/testRepo/gh-pages/assets/12.png" onclick="imageclick(src)"></center>
