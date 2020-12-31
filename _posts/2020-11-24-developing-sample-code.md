@@ -49,10 +49,42 @@ private void addBarrier(Context context, final String label,
 </code>
 </pre>
 
+Remember to remove a barrier if it already exists and add it again
 <pre>
 <code>
-AwarenessBarrier enterBarrier = LocationBarrier.enter(latitude, longitude, radius);
-addBarrier(this, ENTER_BARRIER_LABEL, enterBarrier, mPendingIntent);
+Awareness.getBarrierClient(this).queryBarriers(BarrierQueryRequest.all())
+                .addOnSuccessListener(barrierQueryResponse -> {
+                    AwarenessBarrier enterBarrier = LocationBarrier.enter(
+                            latitude, longitude, radius);
+                    AwarenessBarrier exitBarrier = LocationBarrier.exit(
+                            latitude, longitude, radius);
+
+                    if (barrierQueryResponse.getBarrierStatusMap().getBarrierLabels()
+                            .contains(ENTER_BARRIER_LABEL)) {
+                        removeBarrier(ENTER_BARRIER_LABEL, res -> {
+                            if (res) {
+                                addBarrier(this, ENTER_BARRIER_LABEL, enterBarrier,
+                                        mPendingIntent);
+                            }
+                        });
+                    } else {
+                        addBarrier(this, ENTER_BARRIER_LABEL, enterBarrier,
+                                mPendingIntent);
+                    }
+
+                    if (barrierQueryResponse.getBarrierStatusMap().getBarrierLabels()
+                            .contains(EXIT_BARRIER_LABEL)) {
+                        removeBarrier(EXIT_BARRIER_LABEL, res -> {
+                            if (res) {
+                                addBarrier(this, EXIT_BARRIER_LABEL, exitBarrier,
+                                        mPendingIntent);
+                            }
+                        });
+                    } else {
+                        addBarrier(this, EXIT_BARRIER_LABEL, exitBarrier,
+                                mPendingIntent);
+                    }
+                }).addOnFailureListener(e -> Log.e(TAG, e.getMessage(), e));
 </code>
 </pre>
 
@@ -60,27 +92,37 @@ Remember that you need to create the barrier only if your app has the neccessary
 
 <pre>
 <code>
- @Override
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_BACKGROUND_LOCATION},
+                    PERMISSION_REQUEST_CODE);
+        } else {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSION_REQUEST_CODE);
+        }
+</code>
+</pre>
+
+<pre>
+<code>
+    @Override
     public void onRequestPermissionsResult(
             int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST_CODE) {
-            boolean isPermissionDenied = false;
+            boolean isPermissionGranted = true;
             for (int result : grantResults) {
                 if (result == PackageManager.PERMISSION_DENIED) {
-                    isPermissionDenied = true;
+                    isPermissionGranted = false;
                 }
             }
 
-            if (isPermissionDenied) {
-                Toast.makeText(this, "PERMISSION DENIED", Toast.LENGTH_SHORT).show();
+            if (!isPermissionGranted) {
+                Toast.makeText(this, "Permission(s) denied! " +
+                                "You must give necessary permissions for this demo app to run properly.",
+                        Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "PERMISSION GRANTED", Toast.LENGTH_LONG).show();
-
-                @SuppressLint("MissingPermission") AwarenessBarrier enterBarrier = LocationBarrier.enter(latitude, longitude, radius);
-                addBarrier(this, ENTER_BARRIER_LABEL, enterBarrier, mPendingIntent);
-
-                @SuppressLint("MissingPermission") AwarenessBarrier exitBarrier = LocationBarrier.enter(latitude, longitude, radius);
-                addBarrier(this, EXIT_BARRIER_LABEL, exitBarrier, mPendingIntent);
+                Toast.makeText(this, "Permission(s) granted! ", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -88,9 +130,10 @@ Remember that you need to create the barrier only if your app has the neccessary
 </pre>
 
 <p><strong>4. If a user enters the specified area, we will be notified via LocationBarrierReceiver class. </strong></p>
+<p>Here when the enter event of Awareness Kit triggers, we start a timer and on exit event trigger, we stop the timer and calculate the length of stay. Then we send this data to Analytics Kit and CloudDB to analyze the data later. </p>
 <pre>
 <code>
-class LocationBarrierReceiver extends BroadcastReceiver {
+final class LocationBarrierReceiver extends BroadcastReceiver {
         private final String TAG = LocationBarrierReceiver.class.getSimpleName();
 
         @Override
@@ -99,28 +142,48 @@ class LocationBarrierReceiver extends BroadcastReceiver {
             String label = barrierStatus.getBarrierLabel();
             switch (barrierStatus.getPresentStatus()) {
                 case BarrierStatus.TRUE:
-                    Log.i(TAG, label + " status:true" + barrierStatus.getLastBarrierUpdateTime());
-                    printLog(label + " status:true");
-
+                    Log.i(TAG, "[" + label + "]" + " BarrierStatus: TRUE");
+                    printLog("[" + label + "]" + " BarrierStatus: TRUE");
                     if (label.equals("ENTER_BARRIER_LABEL")) {
                         mChronometer.setBase(SystemClock.elapsedRealtime());
                         mChronometer.start();
                     } else if (label.equals("EXIT_BARRIER_LABEL")) {
                         mChronometer.stop();
-                        double elapsedMillis = SystemClock.elapsedRealtime() - mChronometer.getBase();
+                        double elapsedMillis = SystemClock.elapsedRealtime() -
+                                mChronometer.getBase();
                         printLog("Length of stay: " + elapsedMillis / 1000 + " seconds");
+                        Log.e(TAG, "Length of stay: " + elapsedMillis);
+
+                        // Send lengthOfStay via a custom event to Analytics
+                        Bundle bundle = new Bundle();
+                        bundle.putDouble("length_of_stay", elapsedMillis / 1000);
+                        mHiAnalytics.onEvent("LENGTH_OF_STAY", bundle);
+
+                        // Send lengthOfStay to CloudDB
+                        User user = new User();
+                        user.setId(UUID.randomUUID().toString());
+                        user.setUserId(userId);
+                        user.setLengthOfStay(elapsedMillis / 1000);
+                        mCloudDBHelper.upsertUser(user, res -> {
+                            if (res) {
+                                mCloudDBHelper.queryAverage(avgResult -> {
+                                    printLog("Average length of stay: " + avgResult);
+                                });
+                            }
+                        });
                     }
                     break;
                 case BarrierStatus.FALSE:
-                    Log.i(TAG, label + " status:false");
-                    printLog(label + " status:false");
+                    Log.i(TAG, "[" + label + "]" + " BarrierStatus: FALSE");
+                    printLog("[" + label + "]" + " BarrierStatus: FALSE");
                     break;
                 case BarrierStatus.UNKNOWN:
-                    Log.i(TAG, label + " status:unknown");
-                    printLog(label + " status:unknown");
+                    Log.i(TAG, "[" + label + "]" + " BarrierStatus: UNKNOWN");
+                    printLog("[" + label + "]" + " BarrierStatus: UNKNOWN");
                     break;
             }
         }
     }
 </code>
 </pre>
+
