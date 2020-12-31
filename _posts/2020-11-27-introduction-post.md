@@ -15,6 +15,8 @@ description: 1
 	<li>Adding an ENTER barrier</li>
 	<li>Adding an EXIT barrier</li>
 	<li>Measuring users' length of stay in that district</li>
+  <li>Send custom events in Analytics Kit</li>
+  <li>Insert and query data from CloudDB</li>
 </ul>
 <h2 class="checklist">
 	<strong>What You Will Learn</strong>
@@ -26,5 +28,6 @@ description: 1
 	<li>Integrate and use abilities of LocationBarrier APIs of Awareness Kit SDK</li>
 	<li>How to develop a barrier triggered by the enter condition</li>
 	<li>How to develop a barrier triggered by the exit condition</li>
+  <li>How to integrate and use Awareness Kit, Analytics Kit and CloudDB together</li>
 </ul>
 
