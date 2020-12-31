@@ -6,6 +6,13 @@ description: 1
 <p>
 	HUAWEI Awareness Kit provides your app with the ability to obtain contextual information including users' current time, location, behavior, audio device status, ambient light, weather, and nearby beacons. Your app can gain insight into a user's current situation more efficiently, making it possible to deliver a smarter, more considerate user experience.
 </p>
+
+<h2>
+	<strong>The Scenario</strong>
+</h2>
+<p>
+Our scenario in this demo will be to use enter and exit events of Awareness Kit to measure length of stay of our users in a specific location and send that data to Analytics Kit and CloudDB. Then we'll get the average time of our users' stay in that area via queryAverage capability of CloudDB.</p>
+
 <h2>
 	<strong>What You Will Create</strong>
 </h2>
