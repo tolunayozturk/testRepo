@@ -41,21 +41,23 @@
 
     1) First, define the location and the radius to be notified of when a user enters that area.
     Remember the radius should be at least 200 meters.
-    Code location https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L46
+    Code location ![https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L46](https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L46)
     
     2) Define the PendingIntent that will be triggered upon a barrier status change, and register a broadcast receiver to receive the broadcast.
-    Code location https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L72
+    Code location ![https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L72](https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L72)
     
     3) Create and add the barrier
-    Code location https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L121
+    Code location ![https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L121](https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L121)
+    
       Remember to remove a barrier if it already exists and add it again
-      Code location https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L80
+      Code location ![https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L80](https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L80)
+
       Remember that you need to create the barrier only if your app has the neccessary permissions so check the permissions before creating a location barrier.
-      Code locatio https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/LoginActivity.java#L55
+      Code locatio ![https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/LoginActivity.java#L55](https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/LoginActivity.java#L55)
     
     4) If a user enters the specified area, we will be notified via LocationBarrierReceiver class.
     When the enter event of Awareness Kit triggers, we start a timer and on exit event trigger, we stop the timer and calculate the length of stay. Then we send this data to Analytics Kit and CloudDB to analyze the data later.
-    Code location https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L166
+    Code location ![https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L166](https://github.com/tolunayozturk/locationbarrier-codelab/blob/97622546ecaf313214843624760f3eec34d59c7e/app/src/main/java/com/tolunayozturk/barrierdemo/MainActivity.java#L166)
     
 
 ##  License
